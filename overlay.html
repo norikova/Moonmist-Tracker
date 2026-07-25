@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+
+<body>
+
+<div class="tracker">
+
+    <div class="label">Current Boss</div>
+    <div class="boss" id="boss">Не выбран</div>
+
+    <div class="space"></div>
+
+    <div class="stat">
+        Deaths:
+        <span id="deaths">0</span>
+    </div>
+
+    <div class="space"></div>
+
+    <div class="stat">
+        Progress:
+        <span id="progress">0 / 208</span>
+    </div>
+
+    <div class="stat">
+        Completion:
+        <span id="percent">0%</span>
+    </div>
+
+</div>
+
+
+<script>
+
+async function updateTracker() {
+
+    const response = await fetch("https://moonmist-tracker.onrender.com/data");
+    const data = await response.json();
+
+    document.getElementById("boss").textContent = data.current_boss;
+
+    document.getElementById("deaths").textContent = data.deaths;
+
+    document.getElementById("progress").textContent =
+        `${data.bosses_killed} / ${data.total_bosses}`;
+
+    const percent =
+        ((data.bosses_killed / data.total_bosses) * 100).toFixed(1);
+
+    document.getElementById("percent").textContent =
+        `${percent}%`;
+}
+
+
+updateTracker();
+setInterval(updateTracker, 3000);
+
+</script>
+
+
+</body>
+</html>
