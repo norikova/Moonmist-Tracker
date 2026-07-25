@@ -1,0 +1,2082 @@
+[
+  {
+    "id": 1,
+    "name": "Годрик Сторукий",
+    "location": "Замок Грозовой Завесы",
+    "type": "полубог",
+    "defeated": false,
+    "attempts": 0,
+    "kill_time": "",
+    "clip": ""
+  },
+  {
+    "id": 2,
+    "name": "Два Предводителя полулюдей",
+    "location": "Прибрежная пещера",
+    "type": "обычный",
+    "defeated": false,
+    "attempts": 0,
+    "kill_time": "",
+    "clip": ""
+  },
+  {
+    "id": 3,
+    "name": "Дуэлянт, хранитель могил",
+    "location": "Грязные катакомбы",
+    "type": "обычный",
+    "defeated": false,
+    "attempts": 0,
+    "kill_time": "",
+    "clip": ""
+  },
+  {
+    "id": 4,
+    "name": "Зверочеловек из Фарум-Азулы",
+    "location": "Лесная пещера",
+    "type": "обычный",
+    "defeated": false,
+    "attempts": 0,
+    "kill_time": "",
+    "clip": ""
+  },
+  {
+    "id": 5,
+    "name": "Изъязвлённый древесный дух",
+    "location": "Могила героя окраин",
+    "type": "корень смерти",
+    "defeated": false,
+    "attempts": 0,
+    "kill_time": "",
+    "clip": ""
+  },
+  {
+    "id": 6,
+    "name": "Лодочник Тибия",
+    "location": "Деревня у вод призыва",
+    "type": "корень смерти",
+    "defeated": true,
+    "attempts": 0,
+    "kill_time": "",
+    "clip": ""
+  },
+  {
+    "id": 7,
+    "name": "Лоскутик",
+    "location": "Грязная пещера",
+    "type": "обычный",
+    "defeated": false,
+    "attempts": 0,
+    "kill_time": "",
+    "clip": ""
+  },
+  {
+    "id": 8,
+    "name": "Маргит, Ужасное Знамение",
+    "location": "Замок Грозовой Завесы",
+    "type": "великий",
+    "defeated": false,
+    "attempts": 0,
+    "kill_time": "",
+    "clip": ""
+  },
+  {
+    "id": 9,
+    "name": "Ночной всадник",
+    "location": "Замогилье",
+    "type": "ночной",
+    "defeated": false,
+    "attempts": 0,
+    "kill_time": "",
+    "clip": ""
+  },
+  {
+    "id": 10,
+    "name": "Охотник за колокольными сферами",
+    "location": "Лачуга воителя",
+    "type": "ночной",
+    "defeated": false,
+    "attempts": 0,
+    "kill_time": "",
+    "clip": ""
+  },
+  {
+    "id": 11,
+    "name": "Птица Смерти",
+    "location": "Грозовой холм",
+    "type": "ночной",
+    "defeated": false,
+    "attempts": 0,
+    "kill_time": "",
+    "clip": ""
+  },
+  {
+    "id": 12,
+    "name": "Приращённый отпрыск",
+    "location": "Часовня Ожидания",
+    "type": "обычный",
+    "defeated": false,
+    "attempts": 0,
+    "kill_time": "",
+    "clip": ""
+  },
+  {
+    "id": 13,
+    "name": "Рыцарь Горнила",
+    "location": "Узилище на Грозовом холме",
+    "type": "узилище",
+    "defeated": false,
+    "attempts": 0,
+    "kill_time": "",
+    "clip": ""
+  },
+  {
+    "id": 14,
+    "name": "Рыцарь-ищейка Дарривил",
+    "location": "Узилище одинокой ищейки",
+    "type": "узилище",
+    "defeated": false,
+    "attempts": 0,
+    "kill_time": "",
+    "clip": ""
+  },
+  {
+    "id": 15,
+    "name": "Солдат Годрика",
+    "location": "Пещера обучения",
+    "type": "обычный",
+    "defeated": false,
+    "attempts": 0,
+    "kill_time": "",
+    "clip": ""
+  },
+  {
+    "id": 16,
+    "name": "Страж-голем",
+    "location": "Пещера под дорогой",
+    "type": "обычный",
+    "defeated": false,
+    "attempts": 0,
+    "kill_time": "",
+    "clip": ""
+  },
+  {
+    "id": 17,
+    "name": "Страж Древа",
+    "location": "Замогилье",
+    "type": "обычный",
+    "defeated": false,
+    "attempts": 0,
+    "kill_time": "",
+    "clip": ""
+  },
+  {
+    "id": 18,
+    "name": "Тролль-камнекоп",
+    "location": "Туннель Замогилья",
+    "type": "обычный",
+    "defeated": false,
+    "attempts": 0,
+    "kill_time": "",
+    "clip": ""
+  },
+  {
+    "id": 19,
+    "name": "Тыквоголовый безумец",
+    "location": "Руины поселения",
+    "type": "обычный",
+    "defeated": false,
+    "attempts": 0,
+    "kill_time": "",
+    "clip": ""
+  },
+  {
+    "id": 20,
+    "name": "Убийца из Чёрных ножей",
+    "location": "Помертвелые катакомбы",
+    "type": "корень смерти",
+    "defeated": false,
+    "attempts": 0,
+    "kill_time": "",
+    "clip": ""
+  },
+  {
+    "id": 21,
+    "name": "Цербер кладбища Древа Эрд",
+    "location": "Катакомбы под скалой",
+    "type": "обычный",
+    "defeated": false,
+    "attempts": 0,
+    "kill_time": "",
+    "clip": ""
+  },
+  {
+    "id": 22,
+    "name": "Эгхил, крылатый дракон",
+    "location": "Озеро Эгхила",
+    "type": "великий",
+    "defeated": false,
+    "attempts": 0,
+    "kill_time": "",
+    "clip": ""
+  },
+  {
+    "id": 23,
+    "name": "Апостол божественной кожи",
+    "location": "Доминула, деревня ветряной мельницы",
+    "type": "великий",
+    "defeated": false,
+    "attempts": 0,
+    "kill_time": "",
+    "clip": ""
+  },
+  {
+    "id": 24,
+    "name": "Годфрой Сторукий",
+    "location": "Узилище золотой династии",
+    "type": "узилище",
+    "defeated": false,
+    "attempts": 0,
+    "kill_time": "",
+    "clip": ""
+  },
+  {
+    "id": 25,
+    "name": "Два Кристалийца",
+    "location": "Туннель Альтуса",
+    "type": "обычный",
+    "defeated": false,
+    "attempts": 0,
+    "kill_time": "",
+    "clip": ""
+  },
+  {
+    "id": 26,
+    "name": "Два Стража Древа",
+    "location": "Западные ворота Лейнделла",
+    "type": "обычный",
+    "defeated": false,
+    "attempts": 0,
+    "kill_time": "",
+    "clip": ""
+  },
+  {
+    "id": 27,
+    "name": "Древний герой Замора",
+    "location": "Могила героя-святого",
+    "type": "узилище",
+    "defeated": false,
+    "attempts": 0,
+    "kill_time": "",
+    "clip": ""
+  },
+  {
+    "id": 28,
+    "name": "Древний дракон Лансеакс",
+    "location": "Плато Альтус",
+    "type": "великий",
+    "defeated": false,
+    "attempts": 0,
+    "kill_time": "",
+    "clip": ""
+  },
+  {
+    "id": 29,
+    "name": "Зверь Падающей звезды",
+    "location": "Западные ворота Лейнделла",
+    "type": "обычный",
+    "defeated": false,
+    "attempts": 0,
+    "kill_time": "",
+    "clip": ""
+  },
+  {
+    "id": 30,
+    "name": "Королева полулюдей Гилика",
+    "location": "Руины Люкса",
+    "type": "обычный",
+    "defeated": false,
+    "attempts": 0,
+    "kill_time": "",
+    "clip": ""
+  },
+  {
+    "id": 31,
+    "name": "Кровавый аристократ",
+    "location": "Кровавые руины",
+    "type": "обычный",
+    "defeated": false,
+    "attempts": 0,
+    "kill_time": "",
+    "clip": ""
+  },
+  {
+    "id": 32,
+    "name": "Миранда Смертоцвет и Убийца знамений",
+    "location": "Грот парфюмера",
+    "type": "обычный",
+    "defeated": false,
+    "attempts": 0,
+    "kill_time": "",
+    "clip": ""
+  },
+  {
+    "id": 33,
+    "name": "Ночной всадник",
+    "location": "Плато Альтус",
+    "type": "ночной",
+    "defeated": false,
+    "attempts": 0,
+    "kill_time": "",
+    "clip": ""
+  },
+  {
+    "id": 34,
+    "name": "Тролль-камнекоп",
+    "location": "Старый туннель Альтуса",
+    "type": "обычный",
+    "defeated": false,
+    "attempts": 0,
+    "kill_time": "",
+    "clip": ""
+  },
+  {
+    "id": 35,
+    "name": "Убийца из Чёрных ножей",
+    "location": "Могила героя-святого",
+    "type": "корень смерти",
+    "defeated": false,
+    "attempts": 0,
+    "kill_time": "",
+    "clip": ""
+  },
+  {
+    "id": 36,
+    "name": "Червемордый",
+    "location": "Малое Древо Эрд",
+    "type": "малое древо",
+    "defeated": false,
+    "attempts": 0,
+    "kill_time": "",
+    "clip": ""
+  },
+  {
+    "id": 37,
+    "name": "Элемер из Шипов",
+    "location": "Сумрачный замок",
+    "type": "великий",
+    "defeated": false,
+    "attempts": 0,
+    "kill_time": "",
+    "clip": ""
+  },
+  {
+    "id": 38,
+    "name": "Астель, Звёзды Тьмы",
+    "location": "Туннель жёлтого аникса",
+    "type": "великий",
+    "defeated": false,
+    "attempts": 0,
+    "kill_time": "",
+    "clip": ""
+  },
+  {
+    "id": 39,
+    "name": "Блуждающая Ложная Слеза",
+    "location": "Тайный путь к Святому Древу",
+    "type": "обычный",
+    "defeated": false,
+    "attempts": 0,
+    "kill_time": "",
+    "clip": ""
+  },
+  {
+    "id": 40,
+    "name": "Великий змей Теодорикс",
+    "location": "Снаружи пещеры забытых",
+    "type": "великий",
+    "defeated": false,
+    "attempts": 0,
+    "kill_time": "",
+    "clip": ""
+  },
+  {
+    "id": 41,
+    "name": "Гнилостное воплощение",
+    "location": "Малое Древо Эрд",
+    "type": "малое древо",
+    "defeated": false,
+    "attempts": 0,
+    "kill_time": "",
+    "clip": ""
+  },
+  {
+    "id": 42,
+    "name": "Гнилостный дуэлянт, хранитель могил",
+    "location": "Катакомбы под священным полем",
+    "type": "обычный",
+    "defeated": false,
+    "attempts": 0,
+    "kill_time": "",
+    "clip": ""
+  },
+  {
+    "id": 43,
+    "name": "Два Ночных всадника",
+    "location": "Внутренняя часть священного поля",
+    "type": "ночной",
+    "defeated": false,
+    "attempts": 0,
+    "kill_time": "",
+    "clip": ""
+  },
+  {
+    "id": 44,
+    "name": "Крестоносец-бастард",
+    "location": "Пещера забытых",
+    "type": "обычный",
+    "defeated": false,
+    "attempts": 0,
+    "kill_time": "",
+    "clip": ""
+  },
+  {
+    "id": 45,
+    "name": "Погребальная птица",
+    "location": "Руины вероотступников",
+    "type": "ночной",
+    "defeated": false,
+    "attempts": 0,
+    "kill_time": "",
+    "clip": ""
+  },
+  {
+    "id": 46,
+    "name": "Бастард Леонин",
+    "location": "Замок Морн",
+    "type": "великий",
+    "defeated": false,
+    "attempts": 0,
+    "kill_time": "",
+    "clip": ""
+  },
+  {
+    "id": 47,
+    "name": "Воплощение Древа Эрд",
+    "location": "Малое Древо Эрд",
+    "type": "малое древо",
+    "defeated": false,
+    "attempts": 0,
+    "kill_time": "",
+    "clip": ""
+  },
+  {
+    "id": 48,
+    "name": "Древний герой Замора",
+    "location": "Плачущее узилище",
+    "type": "узилище",
+    "defeated": false,
+    "attempts": 0,
+    "kill_time": "",
+    "clip": ""
+  },
+  {
+    "id": 49,
+    "name": "Медведь рун",
+    "location": "Подземная пещера",
+    "type": "обычный",
+    "defeated": false,
+    "attempts": 0,
+    "kill_time": "",
+    "clip": ""
+  },
+  {
+    "id": 50,
+    "name": "Миранда Смертоцвет",
+    "location": "Ведущая к гробнице пещера",
+    "type": "обычный",
+    "defeated": false,
+    "attempts": 0,
+    "kill_time": "",
+    "clip": ""
+  },
+  {
+    "id": 51,
+    "name": "Ночной всадник",
+    "location": "Плачущий полуостров",
+    "type": "ночной",
+    "defeated": false,
+    "attempts": 0,
+    "kill_time": "",
+    "clip": ""
+  },
+  {
+    "id": 52,
+    "name": "Птица Смерти",
+    "location": "Плачущий полуостров",
+    "type": "ночной",
+    "defeated": false,
+    "attempts": 0,
+    "kill_time": "",
+    "clip": ""
+  },
+  {
+    "id": 53,
+    "name": "Тень кладбища",
+    "location": "Ведущие в гробницу катакомбы",
+    "type": "корень смерти",
+    "defeated": false,
+    "attempts": 0,
+    "kill_time": "",
+    "clip": ""
+  },
+  {
+    "id": 54,
+    "name": "Цербер кладбища Древа Эрд",
+    "location": "Катакомбы Колосажателя",
+    "type": "обычный",
+    "defeated": false,
+    "attempts": 0,
+    "kill_time": "",
+    "clip": ""
+  },
+  {
+    "id": 55,
+    "name": "Чешуйчатый бастард",
+    "location": "Туннель Морна",
+    "type": "обычный",
+    "defeated": false,
+    "attempts": 0,
+    "kill_time": "",
+    "clip": ""
+  },
+  {
+    "id": 56,
+    "name": "Лоретта, рыцарь Святого Древа",
+    "location": "Святое Древо Микеллы",
+    "type": "легендарный",
+    "defeated": false,
+    "attempts": 0,
+    "kill_time": "",
+    "clip": ""
+  },
+  {
+    "id": 57,
+    "name": "Маления, Клинок Микеллы",
+    "location": "Корни Святого Древа",
+    "type": "полубог",
+    "defeated": false,
+    "attempts": 0,
+    "kill_time": "",
+    "clip": ""
+  },
+  {
+    "id": 58,
+    "name": "Владыка драконов Пласидусакс",
+    "location": "Секретная область",
+    "type": "легендарный",
+    "defeated": false,
+    "attempts": 0,
+    "kill_time": "",
+    "clip": ""
+  },
+  {
+    "id": 59,
+    "name": "Двое из божественной кожи",
+    "location": "Драконий храм",
+    "type": "великий",
+    "defeated": false,
+    "attempts": 0,
+    "kill_time": "",
+    "clip": ""
+  },
+  {
+    "id": 60,
+    "name": "Маликет Чёрный Клинок",
+    "location": "Великий Мост",
+    "type": "легендарный",
+    "defeated": false,
+    "attempts": 0,
+    "kill_time": "",
+    "clip": ""
+  },
+  {
+    "id": 61,
+    "name": "Радагон из Золотого порядка / Зверь Элдена",
+    "location": "Трон Элдена",
+    "type": "полубог",
+    "defeated": false,
+    "attempts": 0,
+    "kill_time": "",
+    "clip": ""
+  },
+  {
+    "id": 62,
+    "name": "Алый волк чемпиона",
+    "location": "Могила героя Гельмира",
+    "type": "обычный",
+    "defeated": false,
+    "attempts": 0,
+    "kill_time": "",
+    "clip": ""
+  },
+  {
+    "id": 63,
+    "name": "Аристократ божественной кожи",
+    "location": "Вулканово поместье",
+    "type": "обычный",
+    "defeated": false,
+    "attempts": 0,
+    "kill_time": "",
+    "clip": ""
+  },
+  {
+    "id": 64,
+    "name": "Взрослый зверь Падающей звезды",
+    "location": "Вулкан Гельмир",
+    "type": "обычный",
+    "defeated": false,
+    "attempts": 0,
+    "kill_time": "",
+    "clip": ""
+  },
+  {
+    "id": 65,
+    "name": "Девы-похитительницы",
+    "location": "Подземная камера Инквизиции",
+    "type": "обычный",
+    "defeated": false,
+    "attempts": 0,
+    "kill_time": "",
+    "clip": ""
+  },
+  {
+    "id": 66,
+    "name": "Изъязвлённый древесный дух",
+    "location": "Малое Древо Эрд",
+    "type": "малое древо",
+    "defeated": false,
+    "attempts": 0,
+    "kill_time": "",
+    "clip": ""
+  },
+  {
+    "id": 67,
+    "name": "Королева полулюдей Марго",
+    "location": "Вулканическая пещера",
+    "type": "обычный",
+    "defeated": false,
+    "attempts": 0,
+    "kill_time": "",
+    "clip": ""
+  },
+  {
+    "id": 68,
+    "name": "Королева полулюдей Мэгги",
+    "location": "Деревня отшельников",
+    "type": "обычный",
+    "defeated": false,
+    "attempts": 0,
+    "kill_time": "",
+    "clip": ""
+  },
+  {
+    "id": 69,
+    "name": "Лодочник Тибия",
+    "location": "Руины Виндхэма",
+    "type": "корень смерти",
+    "defeated": false,
+    "attempts": 0,
+    "kill_time": "",
+    "clip": ""
+  },
+  {
+    "id": 70,
+    "name": "Магмовый змей",
+    "location": "Озеро лавы вулкана Гельмир",
+    "type": "великий",
+    "defeated": false,
+    "attempts": 0,
+    "kill_time": "",
+    "clip": ""
+  },
+  {
+    "id": 71,
+    "name": "Некромант Гаррис",
+    "location": "Пещера мудреца",
+    "type": "обычный",
+    "defeated": false,
+    "attempts": 0,
+    "kill_time": "",
+    "clip": ""
+  },
+  {
+    "id": 72,
+    "name": "Парфюмерша Триша и Воин-бастард",
+    "location": "Отвратительные катакомбы",
+    "type": "обычный",
+    "defeated": false,
+    "attempts": 0,
+    "kill_time": "",
+    "clip": ""
+  },
+  {
+    "id": 73,
+    "name": "Рикард, богохульный владыка",
+    "location": "Вулканово поместье",
+    "type": "полубог",
+    "defeated": false,
+    "attempts": 0,
+    "kill_time": "",
+    "clip": ""
+  },
+  {
+    "id": 74,
+    "name": "Родич гнили",
+    "location": "Пещера Кипящей реки",
+    "type": "обычный",
+    "defeated": false,
+    "attempts": 0,
+    "kill_time": "",
+    "clip": ""
+  },
+  {
+    "id": 75,
+    "name": "Убийца из Чёрных ножей",
+    "location": "Пещера мудреца",
+    "type": "корень смерти",
+    "defeated": false,
+    "attempts": 0,
+    "kill_time": "",
+    "clip": ""
+  },
+  {
+    "id": 76,
+    "name": "Цербер кладбища Древа Эрд",
+    "location": "Катакомбы Виндхэма",
+    "type": "обычный",
+    "defeated": false,
+    "attempts": 0,
+    "kill_time": "",
+    "clip": ""
+  },
+  {
+    "id": 77,
+    "name": "Адан, вор огня",
+    "location": "Узилище лиходея",
+    "type": "узилище",
+    "defeated": false,
+    "attempts": 0,
+    "kill_time": "",
+    "clip": ""
+  },
+  {
+    "id": 78,
+    "name": "Адула, дракон блестящих камней",
+    "location": "Собор Мануса Целеса",
+    "type": "великий",
+    "defeated": false,
+    "attempts": 0,
+    "kill_time": "",
+    "clip": ""
+  },
+  {
+    "id": 79,
+    "name": "Алекто, Главарь Чёрного ножа",
+    "location": "Узилище главаря",
+    "type": "узилище",
+    "defeated": false,
+    "attempts": 0,
+    "kill_time": "",
+    "clip": ""
+  },
+  {
+    "id": 80,
+    "name": "Алый волк Радагона",
+    "location": "Академия Райи Лукарии",
+    "type": "великий",
+    "defeated": false,
+    "attempts": 0,
+    "kill_time": "",
+    "clip": ""
+  },
+  {
+    "id": 81,
+    "name": "Болс, карианский рыцарь",
+    "location": "Узилище Кукушки",
+    "type": "узилище",
+    "defeated": false,
+    "attempts": 0,
+    "kill_time": "",
+    "clip": ""
+  },
+  {
+    "id": 82,
+    "name": "Воплощение Древа Эрд",
+    "location": "Северо-восточное Малое Древо Эрд",
+    "type": "малое древо",
+    "defeated": false,
+    "attempts": 0,
+    "kill_time": "",
+    "clip": ""
+  },
+  {
+    "id": 83,
+    "name": "Воплощение Древа Эрд",
+    "location": "Юго-западное Малое Древо Эрд",
+    "type": "малое древо",
+    "defeated": false,
+    "attempts": 0,
+    "kill_time": "",
+    "clip": ""
+  },
+  {
+    "id": 84,
+    "name": "Два Кристалийца",
+    "location": "Кристальная пещера академии",
+    "type": "обычный",
+    "defeated": false,
+    "attempts": 0,
+    "kill_time": "",
+    "clip": ""
+  },
+  {
+    "id": 85,
+    "name": "Королева Реннала Полнолунная",
+    "location": "Академия Райи Лукарии",
+    "type": "полубог",
+    "defeated": false,
+    "attempts": 0,
+    "kill_time": "",
+    "clip": ""
+  },
+  {
+    "id": 86,
+    "name": "Королевский призрак",
+    "location": "Руины королевских владений",
+    "type": "обычный",
+    "defeated": false,
+    "attempts": 0,
+    "kill_time": "",
+    "clip": ""
+  },
+  {
+    "id": 87,
+    "name": "Кристалиец",
+    "location": "Кристальный туннель Райи Лукарии",
+    "type": "обычный",
+    "defeated": false,
+    "attempts": 0,
+    "kill_time": "",
+    "clip": ""
+  },
+  {
+    "id": 88,
+    "name": "Лоретта, королевский рыцарь",
+    "location": "Поместье Карии",
+    "type": "великий",
+    "defeated": false,
+    "attempts": 0,
+    "kill_time": "",
+    "clip": ""
+  },
+  {
+    "id": 89,
+    "name": "Лодочник Тибия",
+    "location": "Озёрная Лиурния",
+    "type": "корень смерти",
+    "defeated": false,
+    "attempts": 0,
+    "kill_time": "",
+    "clip": ""
+  },
+  {
+    "id": 90,
+    "name": "Магмовый змей Макар",
+    "location": "Усыпанный руинами обрыв",
+    "type": "великий",
+    "defeated": false,
+    "attempts": 0,
+    "kill_time": "",
+    "clip": ""
+  },
+  {
+    "id": 91,
+    "name": "Ночной всадник",
+    "location": "Озёрная Лиурния",
+    "type": "ночной",
+    "defeated": false,
+    "attempts": 0,
+    "kill_time": "",
+    "clip": ""
+  },
+  {
+    "id": 92,
+    "name": "Ночной всадник",
+    "location": "Тракт Беллума",
+    "type": "ночной",
+    "defeated": false,
+    "attempts": 0,
+    "kill_time": "",
+    "clip": ""
+  },
+  {
+    "id": 93,
+    "name": "Ониксовый повелитель",
+    "location": "Узилище королевской могилы",
+    "type": "узилище",
+    "defeated": false,
+    "attempts": 0,
+    "kill_time": "",
+    "clip": ""
+  },
+  {
+    "id": 94,
+    "name": "Охотник за колокольными сферами",
+    "location": "Храм клятв",
+    "type": "ночной",
+    "defeated": false,
+    "attempts": 0,
+    "kill_time": "",
+    "clip": ""
+  },
+  {
+    "id": 95,
+    "name": "Погребальная птица",
+    "location": "Центральная Лиурния",
+    "type": "ночной",
+    "defeated": false,
+    "attempts": 0,
+    "kill_time": "",
+    "clip": ""
+  },
+  {
+    "id": 96,
+    "name": "Птица Смерти",
+    "location": "Юг Лиурнии",
+    "type": "ночной",
+    "defeated": false,
+    "attempts": 0,
+    "kill_time": "",
+    "clip": ""
+  },
+  {
+    "id": 97,
+    "name": "Рыцарь-ищейка",
+    "location": "Кристальная береговая пещера",
+    "type": "обычный",
+    "defeated": false,
+    "attempts": 0,
+    "kill_time": "",
+    "clip": ""
+  },
+  {
+    "id": 98,
+    "name": "Рыцарь чистой гнили",
+    "location": "Пещера тихого омута",
+    "type": "обычный",
+    "defeated": false,
+    "attempts": 0,
+    "kill_time": "",
+    "clip": ""
+  },
+  {
+    "id": 99,
+    "name": "Смараг, дракон блестящих камней",
+    "location": "Озеро Лиурнии",
+    "type": "великий",
+    "defeated": false,
+    "attempts": 0,
+    "kill_time": "",
+    "clip": ""
+  },
+  {
+    "id": 100,
+    "name": "Тень кладбища",
+    "location": "Катакомбы Чёрного ножа",
+    "type": "корень смерти",
+    "defeated": false,
+    "attempts": 0,
+    "kill_time": "",
+    "clip": ""
+  },
+  {
+    "id": 101,
+    "name": "Убийца знамений",
+    "location": "Деревня альбиноров",
+    "type": "обычный",
+    "defeated": false,
+    "attempts": 0,
+    "kill_time": "",
+    "clip": ""
+  },
+  {
+    "id": 102,
+    "name": "Убийца из Чёрных ножей",
+    "location": "Катакомбы Чёрного ножа",
+    "type": "корень смерти",
+    "defeated": false,
+    "attempts": 0,
+    "kill_time": "",
+    "clip": ""
+  },
+  {
+    "id": 103,
+    "name": "Улитка-призывательница духов",
+    "location": "Катакомбы у тупика",
+    "type": "обычный",
+    "defeated": false,
+    "attempts": 0,
+    "kill_time": "",
+    "clip": ""
+  },
+  {
+    "id": 104,
+    "name": "Цербер кладбища Древа Эрд",
+    "location": "Катакомбы под утёсом",
+    "type": "обычный",
+    "defeated": false,
+    "attempts": 0,
+    "kill_time": "",
+    "clip": ""
+  },
+  {
+    "id": 105,
+    "name": "Годфри, первый повелитель Элдена",
+    "location": "Святилище Древа Эрд",
+    "type": "легендарный",
+    "defeated": false,
+    "attempts": 0,
+    "kill_time": "",
+    "clip": ""
+  },
+  {
+    "id": 106,
+    "name": "Драконий Страж Древа",
+    "location": "Вход в столицу",
+    "type": "великий",
+    "defeated": false,
+    "attempts": 0,
+    "kill_time": "",
+    "clip": ""
+  },
+  {
+    "id": 107,
+    "name": "Дуэлянт, хранитель могил",
+    "location": "Боковая гробница Аурицы",
+    "type": "обычный",
+    "defeated": false,
+    "attempts": 0,
+    "kill_time": "",
+    "clip": ""
+  },
+  {
+    "id": 108,
+    "name": "Жрец крови Эсгар",
+    "location": "Катакомбы Лейнделла",
+    "type": "обычный",
+    "defeated": false,
+    "attempts": 0,
+    "kill_time": "",
+    "clip": ""
+  },
+  {
+    "id": 109,
+    "name": "Мог, Знамение",
+    "location": "Подземелье отчуждения",
+    "type": "великий",
+    "defeated": false,
+    "attempts": 0,
+    "kill_time": "",
+    "clip": ""
+  },
+  {
+    "id": 110,
+    "name": "Морготт, король знамений",
+    "location": "Трон Элдена",
+    "type": "полубог",
+    "defeated": false,
+    "attempts": 0,
+    "kill_time": "",
+    "clip": ""
+  },
+  {
+    "id": 111,
+    "name": "Ониксовый повелитель",
+    "location": "Запечатанный туннель",
+    "type": "обычный",
+    "defeated": false,
+    "attempts": 0,
+    "kill_time": "",
+    "clip": ""
+  },
+  {
+    "id": 112,
+    "name": "Охотник за колокольными сферами",
+    "location": "Лачуга торговца-отшельника",
+    "type": "ночной",
+    "defeated": false,
+    "attempts": 0,
+    "kill_time": "",
+    "clip": ""
+  },
+  {
+    "id": 113,
+    "name": "Птица смерти",
+    "location": "Лачуга торговца-отшельника",
+    "type": "ночной",
+    "defeated": false,
+    "attempts": 0,
+    "kill_time": "",
+    "clip": ""
+  },
+  {
+    "id": 114,
+    "name": "Рыцарь Горнила Ордовис и Рыцарь Силурии",
+    "location": "Могила героя Аурицы",
+    "type": "узилище",
+    "defeated": false,
+    "attempts": 0,
+    "kill_time": "",
+    "clip": ""
+  },
+  {
+    "id": 115,
+    "name": "Ужасные близнецы",
+    "location": "Священная башня Восточного Альтуса",
+    "type": "обычный",
+    "defeated": false,
+    "attempts": 0,
+    "kill_time": "",
+    "clip": ""
+  },
+  {
+    "id": 116,
+    "name": "Сэр Гидеон Офнир Всеведущий",
+    "location": "Столица пепла",
+    "type": "легендарный",
+    "defeated": false,
+    "attempts": 0,
+    "kill_time": "",
+    "clip": ""
+  },
+  {
+    "id": 117,
+    "name": "Хоара Лукс, воин",
+    "location": "Столица Пепла",
+    "type": "легендарный",
+    "defeated": false,
+    "attempts": 0,
+    "kill_time": "",
+    "clip": ""
+  },
+  {
+    "id": 118,
+    "name": "Драконий солдат",
+    "location": "Река Сиофра",
+    "type": "великий",
+    "defeated": false,
+    "attempts": 0,
+    "kill_time": "",
+    "clip": ""
+  },
+  {
+    "id": 119,
+    "name": "Дух предка",
+    "location": "Земли святого рога",
+    "type": "легендарный",
+    "defeated": false,
+    "attempts": 0,
+    "kill_time": "",
+    "clip": ""
+  },
+  {
+    "id": 120,
+    "name": "Драконий солдат Нокстеллы",
+    "location": "Река Ансель",
+    "type": "великий",
+    "defeated": false,
+    "attempts": 0,
+    "kill_time": "",
+    "clip": ""
+  },
+  {
+    "id": 121,
+    "name": "Дух величавого предка",
+    "location": "Земли святого рога",
+    "type": "легендарный",
+    "defeated": false,
+    "attempts": 0,
+    "kill_time": "",
+    "clip": ""
+  },
+  {
+    "id": 122,
+    "name": "Ложная Слеза",
+    "location": "Нокрон, Вечный город",
+    "type": "великий",
+    "defeated": false,
+    "attempts": 0,
+    "kill_time": "",
+    "clip": ""
+  },
+  {
+    "id": 123,
+    "name": "Отважные горгульи",
+    "location": "Акведук Сиофры",
+    "type": "великий",
+    "defeated": false,
+    "attempts": 0,
+    "kill_time": "",
+    "clip": ""
+  },
+  {
+    "id": 124,
+    "name": "Апостол божественной кожи",
+    "location": "Священная башня Звёздных пустошей",
+    "type": "обычный",
+    "defeated": false,
+    "attempts": 0,
+    "kill_time": "",
+    "clip": ""
+  },
+  {
+    "id": 125,
+    "name": "Воин-бастард и Рыцарь Горнила",
+    "location": "Замок Рыжей гривы",
+    "type": "обычный",
+    "defeated": false,
+    "attempts": 0,
+    "kill_time": "",
+    "clip": ""
+  },
+  {
+    "id": 126,
+    "name": "Гнилостное воплощение",
+    "location": "Малое Древо Эрд в Звёздных пустошах",
+    "type": "малое древо",
+    "defeated": false,
+    "attempts": 0,
+    "kill_time": "",
+    "clip": ""
+  },
+  {
+    "id": 127,
+    "name": "Гнилостное воплощение",
+    "location": "Малое Древо Эрд в Драконьем кургане",
+    "type": "малое древо",
+    "defeated": false,
+    "attempts": 0,
+    "kill_time": "",
+    "clip": ""
+  },
+  {
+    "id": 128,
+    "name": "Гнилостное Трио Кристалийцев",
+    "location": "Убежище в Селлии",
+    "type": "обычный",
+    "defeated": false,
+    "attempts": 0,
+    "kill_time": "",
+    "clip": ""
+  },
+  {
+    "id": 129,
+    "name": "Гнилостный древесный дух",
+    "location": "Катакомбы мёртвых воинов",
+    "type": "корень смерти",
+    "defeated": false,
+    "attempts": 0,
+    "kill_time": "",
+    "clip": ""
+  },
+  {
+    "id": 130,
+    "name": "Гниющий Экзикес",
+    "location": "Храм драконьего причастия",
+    "type": "великий",
+    "defeated": false,
+    "attempts": 0,
+    "kill_time": "",
+    "clip": ""
+  },
+  {
+    "id": 131,
+    "name": "Греил, крылатый дракон",
+    "location": "Мост Драконьего кургана",
+    "type": "великий",
+    "defeated": false,
+    "attempts": 0,
+    "kill_time": "",
+    "clip": ""
+  },
+  {
+    "id": 132,
+    "name": "Грейолл, Великая драконица",
+    "location": "Драконий Курган",
+    "type": "великий",
+    "defeated": false,
+    "attempts": 0,
+    "kill_time": "",
+    "clip": ""
+  },
+  {
+    "id": 133,
+    "name": "Гуго, боевой маг",
+    "location": "Узилище Селлии",
+    "type": "узилище",
+    "defeated": false,
+    "attempts": 0,
+    "kill_time": "",
+    "clip": ""
+  },
+  {
+    "id": 134,
+    "name": "Два зверочеловека из Фарум-Азулы",
+    "location": "Пещера Драконьего кургана",
+    "type": "обычный",
+    "defeated": false,
+    "attempts": 0,
+    "kill_time": "",
+    "clip": ""
+  },
+  {
+    "id": 135,
+    "name": "Два рыцаря чистой гнили",
+    "location": "Заброшенная пещера",
+    "type": "обычный",
+    "defeated": false,
+    "attempts": 0,
+    "kill_time": "",
+    "clip": ""
+  },
+  {
+    "id": 136,
+    "name": "Два тыквоголовых безумца",
+    "location": "Руины Калема",
+    "type": "обычный",
+    "defeated": false,
+    "attempts": 0,
+    "kill_time": "",
+    "clip": ""
+  },
+  {
+    "id": 137,
+    "name": "Два цербера кладбища Древа Эрд",
+    "location": "Катакомбы малого Древа Эрд",
+    "type": "обычный",
+    "defeated": false,
+    "attempts": 0,
+    "kill_time": "",
+    "clip": ""
+  },
+  {
+    "id": 138,
+    "name": "Зверь Падающей звезды",
+    "location": "Кристальный туннель Селлии",
+    "type": "обычный",
+    "defeated": false,
+    "attempts": 0,
+    "kill_time": "",
+    "clip": ""
+  },
+  {
+    "id": 139,
+    "name": "Командир О'Нил",
+    "location": "Болото Эония",
+    "type": "обычный",
+    "defeated": false,
+    "attempts": 0,
+    "kill_time": "",
+    "clip": ""
+  },
+  {
+    "id": 140,
+    "name": "Магмовый змей",
+    "location": "Туннель Гаэля",
+    "type": "великий",
+    "defeated": false,
+    "attempts": 0,
+    "kill_time": "",
+    "clip": ""
+  },
+  {
+    "id": 141,
+    "name": "Мечница-нокс и Монах-нокс",
+    "location": "Селлия, город магии",
+    "type": "обычный",
+    "defeated": false,
+    "attempts": 0,
+    "kill_time": "",
+    "clip": ""
+  },
+  {
+    "id": 142,
+    "name": "Ночной всадник",
+    "location": "Звёздные пустоши",
+    "type": "ночной",
+    "defeated": false,
+    "attempts": 0,
+    "kill_time": "",
+    "clip": ""
+  },
+  {
+    "id": 143,
+    "name": "Ночной всадник",
+    "location": "Башня Ленне",
+    "type": "ночной",
+    "defeated": false,
+    "attempts": 0,
+    "kill_time": "",
+    "clip": ""
+  },
+  {
+    "id": 144,
+    "name": "Охотник за колокольными сферами",
+    "location": "Лачуга торговца-затворника",
+    "type": "ночной",
+    "defeated": false,
+    "attempts": 0,
+    "kill_time": "",
+    "clip": ""
+  },
+  {
+    "id": 145,
+    "name": "Погребальная птица",
+    "location": "Ворота Селлии",
+    "type": "ночной",
+    "defeated": false,
+    "attempts": 0,
+    "kill_time": "",
+    "clip": ""
+  },
+  {
+    "id": 146,
+    "name": "Радан Бич Звёзд",
+    "location": "Замок Красной Гривы",
+    "type": "полубог",
+    "defeated": false,
+    "attempts": 0,
+    "kill_time": "",
+    "clip": ""
+  },
+  {
+    "id": 147,
+    "name": "Родич Чёрного Клинка",
+    "location": "Звериное прибежище",
+    "type": "обычный",
+    "defeated": false,
+    "attempts": 0,
+    "kill_time": "",
+    "clip": ""
+  },
+  {
+    "id": 148,
+    "name": "Тень кладбища",
+    "location": "Катакомбы Звёздных пустошей",
+    "type": "корень смерти",
+    "defeated": false,
+    "attempts": 0,
+    "kill_time": "",
+    "clip": ""
+  },
+  {
+    "id": 149,
+    "name": "Яростный дуэлянт",
+    "location": "Тюремная пещера",
+    "type": "обычный",
+    "defeated": false,
+    "attempts": 0,
+    "kill_time": "",
+    "clip": ""
+  },
+  {
+    "id": 150,
+    "name": "Апостол и Аристократ божественной кожи",
+    "location": "Пещера призывателя душ",
+    "type": "обычный",
+    "defeated": false,
+    "attempts": 0,
+    "kill_time": "",
+    "clip": ""
+  },
+  {
+    "id": 151,
+    "name": "Борелис Леденящий Туман",
+    "location": "Ледяное озеро",
+    "type": "великий",
+    "defeated": false,
+    "attempts": 0,
+    "kill_time": "",
+    "clip": ""
+  },
+  {
+    "id": 152,
+    "name": "Вик, рыцарь Круглого стола",
+    "location": "Узилище соперника владыки",
+    "type": "узилище",
+    "defeated": false,
+    "attempts": 0,
+    "kill_time": "",
+    "clip": ""
+  },
+  {
+    "id": 153,
+    "name": "Воплощение Древа Эрд",
+    "location": "Малое Древо Эрд",
+    "type": "малое древо",
+    "defeated": false,
+    "attempts": 0,
+    "kill_time": "",
+    "clip": ""
+  },
+  {
+    "id": 154,
+    "name": "Древний герой Замора",
+    "location": "Могила героя, победителя великанов",
+    "type": "узилище",
+    "defeated": false,
+    "attempts": 0,
+    "kill_time": "",
+    "clip": ""
+  },
+  {
+    "id": 155,
+    "name": "Изъязвлённый древесный дух",
+    "location": "Катакомбы на Вершине великанов",
+    "type": "корень смерти",
+    "defeated": false,
+    "attempts": 0,
+    "kill_time": "",
+    "clip": ""
+  },
+  {
+    "id": 156,
+    "name": "Командир Найлл",
+    "location": "Замок Сол",
+    "type": "великий",
+    "defeated": false,
+    "attempts": 0,
+    "kill_time": "",
+    "clip": ""
+  },
+  {
+    "id": 157,
+    "name": "Ночной всадник",
+    "location": "Запретные земли",
+    "type": "ночной",
+    "defeated": false,
+    "attempts": 0,
+    "kill_time": "",
+    "clip": ""
+  },
+  {
+    "id": 158,
+    "name": "Огненный великан",
+    "location": "Огненный пик",
+    "type": "легендарный",
+    "defeated": false,
+    "attempts": 0,
+    "kill_time": "",
+    "clip": ""
+  },
+  {
+    "id": 159,
+    "name": "Погребальная птица",
+    "location": "Руины звездочётов",
+    "type": "ночной",
+    "defeated": false,
+    "attempts": 0,
+    "kill_time": "",
+    "clip": ""
+  },
+  {
+    "id": 160,
+    "name": "Родич Чёрного Клинка",
+    "location": "Запретные земли",
+    "type": "обычный",
+    "defeated": false,
+    "attempts": 0,
+    "kill_time": "",
+    "clip": ""
+  },
+  {
+    "id": 161,
+    "name": "Астель, Родённый Бездной",
+    "location": "Великий клуатр",
+    "type": "легендарный",
+    "defeated": false,
+    "attempts": 0,
+    "kill_time": "",
+    "clip": ""
+  },
+  {
+    "id": 162,
+    "name": "Драконий солдат",
+    "location": "Озеро гнили",
+    "type": "великий",
+    "defeated": false,
+    "attempts": 0,
+    "kill_time": "",
+    "clip": ""
+  },
+  {
+    "id": 163,
+    "name": "Мог Повелитель Крови",
+    "location": "Мавзолей династии Могвинов",
+    "type": "полубог",
+    "defeated": false,
+    "attempts": 0,
+    "kill_time": "",
+    "clip": ""
+  },
+  {
+    "id": 164,
+    "name": "Герои Фии",
+    "location": "Трон Принца Смерти",
+    "type": "обычный",
+    "defeated": false,
+    "attempts": 0,
+    "kill_time": "",
+    "clip": ""
+  },
+  {
+    "id": 165,
+    "name": "Дракон-лич Фортисакс",
+    "location": "Трон Принца Смерти",
+    "type": "легендарный",
+    "defeated": false,
+    "attempts": 0,
+    "kill_time": "",
+    "clip": ""
+  },
+  {
+    "id": 166,
+    "name": "Рыцарь Горнила Силурия",
+    "location": "Низовье Глубокого Корня",
+    "type": "обычный",
+    "defeated": false,
+    "attempts": 0,
+    "kill_time": "",
+    "clip": ""
+  },
+  {
+    "id": 167,
+    "name": "Бейл Ужасный",
+    "location": "Зубатая гора",
+    "type": "великий",
+    "defeated": false,
+    "attempts": 0,
+    "kill_time": "",
+    "clip": ""
+  },
+  {
+    "id": 168,
+    "name": "Будущий консорт Радан",
+    "location": "Энир-Илим",
+    "type": "легендарный",
+    "defeated": false,
+    "attempts": 0,
+    "kill_time": "",
+    "clip": ""
+  },
+  {
+    "id": 169,
+    "name": "Великий красный медведь Ральва",
+    "location": "Крест у дороги",
+    "type": "обычный",
+    "defeated": false,
+    "attempts": 0,
+    "kill_time": "",
+    "clip": ""
+  },
+  {
+    "id": 170,
+    "name": "Великий красный медведь Ругали",
+    "location": "Север ущелья",
+    "type": "обычный",
+    "defeated": false,
+    "attempts": 0,
+    "kill_time": "",
+    "clip": ""
+  },
+  {
+    "id": 171,
+    "name": "Вождь кровопускателей",
+    "location": "Пещера у речного устья",
+    "type": "обычный",
+    "defeated": false,
+    "attempts": 0,
+    "kill_time": "",
+    "clip": ""
+  },
+  {
+    "id": 172,
+    "name": "Воплощение Древа Упадка",
+    "location": "Пристанище Теней",
+    "type": "легендарный",
+    "defeated": false,
+    "attempts": 0,
+    "kill_time": "",
+    "clip": ""
+  },
+  {
+    "id": 173,
+    "name": "Главный инквизитор Йори",
+    "location": "Сумрачные катакомбы",
+    "type": "обычный",
+    "defeated": false,
+    "attempts": 0,
+    "kill_time": "",
+    "clip": ""
+  },
+  {
+    "id": 174,
+    "name": "Гниющий рыцарь",
+    "location": "Разлом в каменном саркофаге",
+    "type": "легендарный",
+    "defeated": false,
+    "attempts": 0,
+    "kill_time": "",
+    "clip": ""
+  },
+  {
+    "id": 175,
+    "name": "Граф Имир, матерь Пальцев",
+    "location": "Собор Манус Метир",
+    "type": "обычный",
+    "defeated": false,
+    "attempts": 0,
+    "kill_time": "",
+    "clip": ""
+  },
+  {
+    "id": 176,
+    "name": "Дейн Сухой Лист",
+    "location": "Руины Мурта",
+    "type": "обычный",
+    "defeated": false,
+    "attempts": 0,
+    "kill_time": "",
+    "clip": ""
+  },
+  {
+    "id": 177,
+    "name": "Дракон зубатой горы",
+    "location": "Драконья яма",
+    "type": "великий",
+    "defeated": false,
+    "attempts": 0,
+    "kill_time": "",
+    "clip": ""
+  },
+  {
+    "id": 178,
+    "name": "Дракон зубатой горы",
+    "location": "Подножие зубатой горы",
+    "type": "великий",
+    "defeated": false,
+    "attempts": 0,
+    "kill_time": "",
+    "clip": ""
+  },
+  {
+    "id": 179,
+    "name": "Дракон Смерти",
+    "location": "Заброшенная деревня ослабевших",
+    "type": "великий",
+    "defeated": false,
+    "attempts": 0,
+    "kill_time": "",
+    "clip": ""
+  },
+  {
+    "id": 180,
+    "name": "Дракон Смерти",
+    "location": "Лазурное побережье",
+    "type": "великий",
+    "defeated": false,
+    "attempts": 0,
+    "kill_time": "",
+    "clip": ""
+  },
+  {
+    "id": 181,
+    "name": "Дракон Смерти",
+    "location": "Руины Мурта",
+    "type": "великий",
+    "defeated": false,
+    "attempts": 0,
+    "kill_time": "",
+    "clip": ""
+  },
+  {
+    "id": 182,
+    "name": "Древний дракон Сенессакс",
+    "location": "Подножие зубатой горы",
+    "type": "великий",
+    "defeated": false,
+    "attempts": 0,
+    "kill_time": "",
+    "clip": ""
+  },
+  {
+    "id": 183,
+    "name": "Древний человек-дракон",
+    "location": "Драконья яма",
+    "type": "обычный",
+    "defeated": false,
+    "attempts": 0,
+    "kill_time": "",
+    "clip": ""
+  },
+  {
+    "id": 184,
+    "name": "Зверь Падающей звезды",
+    "location": "Холм каменных пальцев",
+    "type": "обычный",
+    "defeated": false,
+    "attempts": 0,
+    "kill_time": "",
+    "clip": ""
+  },
+  {
+    "id": 185,
+    "name": "Золотой гиппопотам",
+    "location": "Пристанище Теней",
+    "type": "обычный",
+    "defeated": false,
+    "attempts": 0,
+    "kill_time": "",
+    "clip": ""
+  },
+  {
+    "id": 186,
+    "name": "Командующий Гай",
+    "location": "Пристанище Теней",
+    "type": "легендарный",
+    "defeated": false,
+    "attempts": 0,
+    "kill_time": "",
+    "clip": ""
+  },
+  {
+    "id": 187,
+    "name": "Королева полулюдей Маригга",
+    "location": "Лазурное побережье, запад",
+    "type": "обычный",
+    "defeated": false,
+    "attempts": 0,
+    "kill_time": "",
+    "clip": ""
+  },
+  {
+    "id": 188,
+    "name": "Красный медведь",
+    "location": "Безымянный северный мавзолей",
+    "type": "узилище",
+    "defeated": false,
+    "attempts": 0,
+    "kill_time": "",
+    "clip": ""
+  },
+  {
+    "id": 189,
+    "name": "Лабирит, проклятый клинок",
+    "location": "Тюрьма в Бонни",
+    "type": "обычный",
+    "defeated": false,
+    "attempts": 0,
+    "kill_time": "",
+    "clip": ""
+  },
+  {
+    "id": 190,
+    "name": "Матерь Пальцев Метир",
+    "location": "Собор Манус Метир",
+    "type": "легендарный",
+    "defeated": false,
+    "attempts": 0,
+    "kill_time": "",
+    "clip": ""
+  },
+  {
+    "id": 191,
+    "name": "Мессмер Колосажатель",
+    "location": "Пристанище Теней",
+    "type": "легендарный",
+    "defeated": false,
+    "attempts": 0,
+    "kill_time": "",
+    "clip": ""
+  },
+  {
+    "id": 192,
+    "name": "Мечник-получеловек Онзе",
+    "location": "Тюрьма в Белурате",
+    "type": "обычный",
+    "defeated": false,
+    "attempts": 0,
+    "kill_time": "",
+    "clip": ""
+  },
+  {
+    "id": 193,
+    "name": "Мидра, Владыка Яростного Пламени",
+    "location": "Поместье Мидры",
+    "type": "легендарный",
+    "defeated": false,
+    "attempts": 0,
+    "kill_time": "",
+    "clip": ""
+  },
+  {
+    "id": 194,
+    "name": "Плакальщик",
+    "location": "Тюрьма плакальщика",
+    "type": "обычный",
+    "defeated": false,
+    "attempts": 0,
+    "kill_time": "",
+    "clip": ""
+  },
+  {
+    "id": 195,
+    "name": "Погребальная птица",
+    "location": "Тайная могила Харо",
+    "type": "ночной",
+    "defeated": false,
+    "attempts": 0,
+    "kill_time": "",
+    "clip": ""
+  },
+  {
+    "id": 196,
+    "name": "Ракшаса",
+    "location": "Безымянный восточный мавзолей",
+    "type": "узилище",
+    "defeated": false,
+    "attempts": 0,
+    "kill_time": "",
+    "clip": ""
+  },
+  {
+    "id": 197,
+    "name": "Реллана, Рыцарь Двойной Луны",
+    "location": "Замок Энсис",
+    "type": "легендарный",
+    "defeated": false,
+    "attempts": 0,
+    "kill_time": "",
+    "clip": ""
+  },
+  {
+    "id": 198,
+    "name": "Ромина, Святая Цветочных Бутонов",
+    "location": "Храм Цветочных бутонов",
+    "type": "легендарный",
+    "defeated": false,
+    "attempts": 0,
+    "kill_time": "",
+    "clip": ""
+  },
+  {
+    "id": 199,
+    "name": "Рыцарь Одиночной тюрьмы",
+    "location": "Безымянный западный мавзолей",
+    "type": "узилище",
+    "defeated": false,
+    "attempts": 0,
+    "kill_time": "",
+    "clip": ""
+  },
+  {
+    "id": 200,
+    "name": "Рыцарь Смерти",
+    "location": "Катакомбы под Скорпионовой рекой",
+    "type": "обычный",
+    "defeated": false,
+    "attempts": 0,
+    "kill_time": "",
+    "clip": ""
+  },
+  {
+    "id": 201,
+    "name": "Рыцарь Смерти",
+    "location": "Катакомбы туманного разлома",
+    "type": "обычный",
+    "defeated": false,
+    "attempts": 0,
+    "kill_time": "",
+    "clip": ""
+  },
+  {
+    "id": 202,
+    "name": "Священный танцующий лев",
+    "location": "Белурат, поселение у башни",
+    "type": "легендарный",
+    "defeated": false,
+    "attempts": 0,
+    "kill_time": "",
+    "clip": ""
+  },
+  {
+    "id": 203,
+    "name": "Священный танцующий лев",
+    "location": "Руины обители Рауха, запад",
+    "type": "великий",
+    "defeated": false,
+    "attempts": 0,
+    "kill_time": "",
+    "clip": ""
+  },
+  {
+    "id": 204,
+    "name": "Страж Древа",
+    "location": "Мост внутренних земель",
+    "type": "обычный",
+    "defeated": false,
+    "attempts": 0,
+    "kill_time": "",
+    "clip": ""
+  },
+  {
+    "id": 205,
+    "name": "Страж Древа",
+    "location": "Мост внутренних земель",
+    "type": "обычный",
+    "defeated": false,
+    "attempts": 0,
+    "kill_time": "",
+    "clip": ""
+  },
+  {
+    "id": 206,
+    "name": "Танцовщица Ранаха",
+    "location": "Безымянный южный мавзолей",
+    "type": "узилище",
+    "defeated": false,
+    "attempts": 0,
+    "kill_time": "",
+    "clip": ""
+  },
+  {
+    "id": 207,
+    "name": "Чёрный рыцарь Гэрью",
+    "location": "Теневой Альтус, запад",
+    "type": "обычный",
+    "defeated": false,
+    "attempts": 0,
+    "kill_time": "",
+    "clip": ""
+  },
+  {
+    "id": 208,
+    "name": "Чёрный рыцарь Эдред",
+    "location": "Форт порицания",
+    "type": "обычный",
+    "defeated": false,
+    "attempts": 0,
+    "kill_time": "",
+    "clip": ""
+  }
+]

@@ -1,0 +1,580 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+
+<meta charset="UTF-8">
+
+<title>Elden Ring Statistics</title>
+
+<link rel="stylesheet" href="/static/style.css">
+
+</head>
+
+
+<body>
+
+
+<div class="container">
+
+
+<h1>
+🌙 Moonmist — прохождение Elden Ring
+</h1>
+
+
+
+<!-- ВЕРХНИЕ КАРТОЧКИ -->
+
+<div class="stats-row">
+
+
+<div class="current-box">
+
+
+<h2>
+📊 Общая статистика
+</h2>
+
+
+<div id="stats">
+Загрузка...
+</div>
+
+
+</div>
+
+
+
+
+<div class="current-box">
+
+
+<h2>
+💀 Самые сложные боссы
+</h2>
+
+
+<div id="top">
+
+Загрузка...
+
+</div>
+
+
+</div>
+
+
+
+
+
+<div class="current-box">
+
+
+<h2>
+🏆 Последние победы
+</h2>
+
+
+<div id="history">
+
+Загрузка...
+
+</div>
+
+
+</div>
+
+
+
+</div>
+
+
+
+
+
+<!-- ВСЕ БОССЫ -->
+
+<div class="current-box">
+
+
+<h2>
+🐉 Все боссы
+</h2>
+
+
+
+
+<div class="filters">
+
+
+<input 
+id="bossFilter"
+placeholder="🔍 Поиск босса..."
+oninput="filterBossList()"
+>
+
+
+
+
+<select id="statusFilter" onchange="filterBossList()">
+
+
+<option value="all">
+⚔ Все статусы
+</option>
+
+
+<option value="alive">
+⚔ Живые
+</option>
+
+
+<option value="dead">
+🏆 Убитые
+</option>
+
+
+</select>
+
+
+
+
+<select id="locationFilter" onchange="filterBossList()">
+
+
+<option value="all">
+📍 Все локации
+</option>
+
+
+</select>
+
+
+
+</div>
+
+
+
+
+<div id="boss-list">
+
+Загрузка...
+
+</div>
+
+
+</div>
+
+
+
+</div>
+
+
+
+<script>
+
+
+async function loadStats(){
+
+
+const response =
+await fetch("/stats");
+
+
+const data =
+await response.json();
+
+
+
+
+document.getElementById("stats").innerHTML = `
+
+
+<p>
+🏆 Побеждено:
+<b>${data.killed}</b>
+/
+<b>${data.total_bosses}</b>
+</p>
+
+
+<p>
+⚔ Осталось:
+<b>${data.left}</b>
+</p>
+
+`;
+
+
+
+
+
+
+let top = document.getElementById("top");
+
+
+top.innerHTML="";
+
+
+
+data.top_deadly.slice(0,3).forEach((boss,index)=>{
+
+
+let medals = [
+"🥇",
+"🥈",
+"🥉"
+];
+
+
+top.innerHTML += `
+
+
+<div class="top-boss">
+
+
+<h3>
+
+${medals[index]}
+${boss.name}
+
+</h3>
+
+
+<p>
+💀 ${boss.deaths} смертей
+</p>
+
+
+</div>
+
+
+`;
+
+
+});
+
+
+
+
+
+
+
+let history =
+document.getElementById("history");
+
+
+history.innerHTML="";
+
+
+
+data.history.slice(0,10).forEach(item=>{
+
+
+history.innerHTML += `
+
+
+<div>
+
+
+<h3>
+🏆 ${item.boss_name}
+</h3>
+
+
+<p>
+Попыток:
+${item.attempts}
+</p>
+
+
+<p>
+📅 ${item.date}
+</p>
+
+
+<hr>
+
+
+</div>
+
+
+`;
+
+
+});
+
+
+}
+
+
+
+
+
+let allBossStats = {};
+
+
+
+async function loadBossList(){
+
+
+const response =
+await fetch("/boss_stats");
+
+
+allBossStats =
+await response.json();
+
+
+loadLocations(allBossStats);
+
+
+renderBossList(allBossStats);
+
+
+}
+
+
+
+
+
+
+function renderBossList(data){
+
+
+const box =
+document.getElementById("boss-list");
+
+
+box.innerHTML = `
+
+
+<table class="boss-table">
+
+<thead>
+
+<tr>
+
+<th>Босс</th>
+
+<th>Локация</th>
+
+<th>Попытки</th>
+
+<th>Статус</th>
+
+</tr>
+
+</thead>
+
+
+<tbody id="bossRows">
+
+</tbody>
+
+
+</table>
+
+
+`;
+
+
+
+const rows =
+document.getElementById("bossRows");
+
+
+
+for(const location in data){
+
+
+data[location].forEach(boss=>{
+
+
+rows.innerHTML += `
+
+
+<tr>
+
+
+<td>
+${boss.name}
+</td>
+
+
+<td>
+${location}
+</td>
+
+
+<td>
+💀 ${boss.deaths}
+</td>
+
+
+<td>
+
+${boss.defeated
+
+?
+
+"🏆 Убит"
+
+:
+
+"⚔ Жив"
+
+}
+
+
+</td>
+
+
+</tr>
+
+
+`;
+
+
+});
+
+
+}
+
+
+}
+
+
+function filterBossList(){
+
+
+let text =
+document.getElementById("bossFilter")
+.value
+.toLowerCase();
+
+
+
+let status =
+document.getElementById("statusFilter")
+.value;
+
+
+
+let location =
+document.getElementById("locationFilter")
+.value;
+
+
+
+let result = {};
+
+
+
+for(const loc in allBossStats){
+
+
+if(
+location !== "all"
+&&
+loc !== location
+){
+
+continue;
+
+}
+
+
+
+let bosses =
+allBossStats[loc].filter(boss=>{
+
+
+let nameOk =
+boss.name
+.toLowerCase()
+.includes(text);
+
+
+
+let statusOk =
+
+
+status==="all"
+
+||
+
+(status==="alive" && !boss.defeated)
+
+||
+
+(status==="dead" && boss.defeated);
+
+
+
+return nameOk && statusOk;
+
+
+
+});
+
+
+
+if(bosses.length){
+
+result[loc]=bosses;
+
+}
+
+
+}
+
+
+
+renderBossList(result);
+
+
+}
+
+
+
+loadBossList();
+
+function loadLocations(data){
+
+
+let select =
+document.getElementById("locationFilter");
+
+
+
+Object.keys(data).forEach(location=>{
+
+
+select.innerHTML += `
+
+
+<option value="${location}">
+📍 ${location}
+</option>
+
+
+`;
+
+
+});
+
+
+}
+
+loadStats();
+
+
+</script>
+
+
+
+</body>
+
+</html>
