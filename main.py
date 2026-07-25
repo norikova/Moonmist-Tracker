@@ -656,7 +656,9 @@ def boss_stats():
 
 @app.route("/overlay")
 def overlay():
-    return send_file("overlay.html")
+    return send_file(
+    os.path.join(BASE_DIR, "overlay.html")
+)
 
 @app.route("/history")
 def history():
