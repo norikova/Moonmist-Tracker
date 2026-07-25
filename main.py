@@ -534,34 +534,6 @@ def tracker():
     print("ОТДАЮ TRACKER:", os.path.abspath("tracker.html"))
     return send_file("tracker.html")
 
-@app.route("/data")
-def data():
-
-    current = load_current()
-    bosses = load_bosses()
-
-    killed = sum(
-        1 for boss in bosses
-        if boss.get("defeated", False)
-    )
-
-    return jsonify({
-
-        "current_boss": current.get(
-            "boss_name",
-            "Не выбран"
-        ),
-
-        "deaths": current.get(
-            "deaths",
-            0
-        ),
-
-        "bosses_killed": killed,
-
-        "total_bosses": len(bosses)
-
-    })
 
 @app.route("/boss_stats")
 def boss_stats():
@@ -691,10 +663,6 @@ def history():
     return send_file(
         os.path.join(BASE_DIR, "history.html")
     )
-
-@app.route("/overlay")
-def overlay():
-    return send_file("overlay.html")
 
 if __name__ == "__main__":
     app.run(
