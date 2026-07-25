@@ -1,0 +1,913 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+<meta charset="UTF-8">
+<title>Elden Ring Boss Tracker</title>
+<head>
+<meta charset="UTF-8">
+<title>Elden Ring Boss Tracker</title>
+<link rel="stylesheet" href="/static/style.css">
+</head>
+<link rel="stylesheet" href="/static/style.css">
+</head>
+
+
+<body>
+
+
+<div class="container">
+
+<h1>⚔️ Elden Ring Boss Tracker</h1>
+
+
+
+<div class="current-box">
+
+<h2>⚔ Текущий босс</h2>
+
+
+<input 
+type="text" 
+id="boss-search"
+list="boss-list-select"
+placeholder="🔍 Выберите босса..."
+>
+
+
+<datalist id="boss-list-select"></datalist>
+
+
+<button onclick="selectCurrentBoss()">
+Начать бой
+</button>
+
+
+
+<div>
+Босс:
+<span id="current-boss">
+Не выбран
+</span>
+</div>
+
+<div>
+📍 Локация:
+<span id="current-location">
+-
+</span>
+</div>
+
+<div>
+Попытки:
+<span id="current-deaths">
+0
+</span>
+</div>
+
+
+</div>
+
+
+
+
+<div class="progress-box">
+
+
+<div id="progress-text">
+Загрузка...
+</div>
+
+
+<div class="progress-bar">
+
+<div id="progress-fill"></div>
+
+</div>
+
+
+</div>
+
+
+
+
+
+<div class="search-box">
+
+
+<input 
+type="text" 
+id="search"
+placeholder="🔍 Поиск босса..."
+oninput="searchBosses()"
+>
+
+
+</div>
+
+
+
+
+
+<div class="filters">
+
+
+<button onclick="filterBosses('all')">
+Все
+</button>
+
+
+<button onclick="filterStatus('alive')">
+☐ Не убиты
+</button>
+
+
+<button onclick="filterStatus('dead')">
+☑ Убиты
+</button>
+
+
+
+<button onclick="filterBosses('полубог')">
+💎 Полубоги
+</button>
+
+
+
+<button onclick="filterBosses('легендарный')">
+⚔️ Легендарные
+</button>
+
+
+
+<button onclick="filterBosses('великий')">
+🗡️ Великие
+</button>
+
+
+
+<button onclick="filterBosses('ночной')">
+🌑 Ночные
+</button>
+
+
+
+<button onclick="filterBosses('малое древо')">
+🌳 Малое Древо
+</button>
+
+
+
+<button onclick="filterBosses('корень смерти')">
+💀 Корень смерти
+</button>
+
+
+
+<button onclick="filterBosses('узилище')">
+⚪ Узилища
+</button>
+
+
+
+<button onclick="filterBosses('обычный')">
+🌻 Обычные
+</button>
+
+
+</div>
+
+
+
+
+
+<div id="boss-list"></div>
+
+
+
+</div>
+
+
+
+
+
+
+
+<script>
+
+
+let allBosses = [];
+
+let currentFilter = "all";
+
+
+
+
+
+async function loadData(){
+
+
+const response =
+await fetch("/data");
+
+
+const data =
+await response.json();
+
+
+
+
+document.getElementById("progress-text").innerHTML =
+
+`
+Побеждено:
+<b>${data.bosses_killed}</b>
+/
+<b>${data.total_bosses}</b>
+
+(${data.progress}%)
+`;
+
+
+
+document.getElementById("progress-fill").style.width =
+data.progress + "%";
+
+
+
+updateCurrentDisplay(data);
+
+
+}
+
+
+
+
+
+
+async function loadBosses(){
+
+
+const response =
+await fetch("/bosses");
+
+
+
+allBosses =
+await response.json();
+
+
+
+applyFilter();
+
+
+}
+
+
+
+
+
+
+function renderBosses(bosses){
+
+
+const container =
+document.getElementById("boss-list");
+
+
+
+container.innerHTML = "";
+
+
+
+bosses.forEach(boss=>{
+
+
+let card =
+document.createElement("div");
+
+
+
+card.className =
+boss.defeated
+?
+"boss defeated"
+:
+"boss";
+
+
+
+card.innerHTML =
+
+
+`
+
+<div class="boss-title">
+
+
+<input
+
+type="checkbox"
+
+${boss.defeated ? "checked":""}
+
+onchange="toggleBoss(${boss.id},this.checked)"
+
+>
+
+
+<span>
+${boss.name}
+</span>
+
+
+</div>
+
+
+
+<div class="location">
+
+📍 ${boss.location}
+
+</div>
+
+
+
+<div class="type">
+
+${getEmoji(boss.type)}
+
+${boss.type}
+
+</div>
+
+
+`;
+
+
+
+container.appendChild(card);
+
+
+
+});
+
+
+}
+
+
+
+
+
+
+function getEmoji(type){
+
+
+switch(type){
+
+
+case "полубог":
+
+return "💎";
+
+
+case "легендарный":
+
+return "⚔️";
+
+
+case "великий":
+
+return "🗡️";
+
+
+case "ночной":
+
+return "🌑";
+
+
+case "малое древо":
+
+return "🌳";
+
+
+case "корень смерти":
+
+return "💀";
+
+
+case "узилище":
+
+return "⚪";
+
+
+default:
+
+return "🌻";
+
+
+}
+
+
+}
+
+
+
+
+
+
+async function toggleBoss(id,checked){
+
+
+if(checked){
+
+    alert(
+    "Босса нужно победить через кнопку 🏆 Победа"
+    );
+
+    return;
+
+}
+
+
+await fetch(
+    `/boss/${id}/reset`,
+    {
+        method:"POST"
+    }
+);
+
+
+await loadData();
+
+await loadBosses();
+
+await loadBossSelect();
+
+
+}
+
+
+
+
+function applyFilter(){
+
+
+if(currentFilter === "all"){
+
+renderBosses(allBosses);
+
+return;
+
+}
+
+
+
+
+if(currentFilter === "alive"){
+
+
+renderBosses(
+
+allBosses.filter(
+
+boss => !boss.defeated
+
+)
+
+);
+
+
+return;
+
+}
+
+
+
+
+
+if(currentFilter === "dead"){
+
+
+renderBosses(
+
+allBosses.filter(
+
+boss => boss.defeated
+
+)
+
+);
+
+
+return;
+
+}
+
+
+
+
+
+renderBosses(
+
+allBosses.filter(
+
+boss => boss.type === currentFilter
+
+)
+
+);
+
+
+}
+
+
+
+
+
+
+function filterStatus(status){
+
+
+currentFilter = status;
+
+
+applyFilter();
+
+
+}
+
+
+
+
+
+
+
+function searchBosses(){
+
+
+let text =
+
+document.getElementById("search").value.toLowerCase();
+
+
+
+
+let result =
+
+
+allBosses.filter(boss=>{
+
+
+return (
+
+boss.name.toLowerCase().includes(text)
+
+||
+
+boss.location.toLowerCase().includes(text)
+
+);
+
+
+});
+
+
+
+renderBosses(result);
+
+
+
+}
+
+
+
+
+
+
+
+function filterBosses(type){
+
+
+currentFilter = type;
+
+
+applyFilter();
+
+
+}
+
+
+
+
+
+
+
+
+
+// ==========================
+// ВЫБОР ТЕКУЩЕГО БОССА
+// ==========================
+
+
+
+
+async function loadBossSelect(){
+
+    console.log("loadBossSelect запущен");
+    
+    const response =
+    await fetch("/bosses");
+
+
+    const bosses =
+    await response.json();
+
+    console.log("Боссов получено:", bosses.length);
+
+
+    const select =
+    document.getElementById("boss-list-select");
+
+
+    if(!select){
+        return;
+    }
+
+
+    select.innerHTML =
+    `
+    <option value="">
+    Выберите босса
+    </option>
+    `;
+
+
+    bosses.forEach(boss=>{
+
+
+        if(boss.defeated === false){
+
+
+            let option =
+            document.createElement("option");
+
+
+            option.textContent =
+            `${boss.name} — ${boss.location}`;
+
+
+            select.appendChild(option);
+
+
+        }
+
+
+    });
+
+
+}
+
+
+
+
+
+
+
+
+
+async function selectCurrentBoss(){
+
+    const text =
+    document.getElementById("boss-search").value;
+
+
+    const response =
+    await fetch("/bosses");
+
+
+    const bosses =
+    await response.json();
+
+
+    const boss =
+    bosses.find(boss =>
+        `${boss.name} — ${boss.location}` === text
+    );
+
+
+    if(!boss){
+        alert("Выбери босса из списка");
+        return;
+    }
+
+
+    await fetch(
+        `/select/${boss.id}`,
+        {
+            method:"POST"
+        }
+    );
+
+
+    updateCurrent();
+
+}
+
+
+
+
+
+
+
+
+
+async function updateCurrent(){
+
+
+
+const response =
+
+await fetch("/data");
+
+
+
+const data =
+
+await response.json();
+
+
+
+
+updateCurrentDisplay(data);
+
+
+
+}
+
+
+
+
+
+
+
+
+
+function updateCurrentDisplay(data){
+
+
+
+const bossElement =
+
+document.getElementById("current-boss");
+
+
+
+const deathsElement =
+
+document.getElementById("current-deaths");
+
+
+const locationElement =
+document.getElementById("current-location");
+
+if(locationElement){
+
+locationElement.textContent =
+data.current_location;
+
+}
+
+
+
+if(bossElement){
+
+
+bossElement.textContent =
+
+data.current_boss;
+
+
+}
+
+
+
+
+
+if(deathsElement){
+
+
+deathsElement.textContent =
+
+data.deaths;
+
+
+}
+
+
+
+}
+
+
+
+// ==========================
+// КЛАВИШИ NUMPAD
+// ==========================
+
+
+document.addEventListener("keydown", async function(event){
+
+
+console.log("Нажата клавиша:", event.code);
+
+
+
+if(event.code === "Numpad5"){
+
+
+    await fetch(
+        "/death",
+        {
+            method:"POST"
+        }
+    );
+
+
+    updateCurrent();
+
+
+}
+
+
+
+
+if(event.code === "Numpad4"){
+
+
+    await fetch(
+        "/undo_death",
+        {
+            method:"POST"
+        }
+    );
+
+
+    updateCurrent();
+
+
+}
+
+
+
+
+if(event.code === "Numpad6"){
+
+
+    await fetch(
+        "/kill_current",
+        {
+            method:"POST"
+        }
+    );
+
+
+    await loadData();
+
+    await loadBosses();
+
+    await loadBossSelect();
+
+    updateCurrent();
+
+
+}
+
+
+
+});
+
+
+
+
+// ==========================
+// СТАРТ
+// ==========================
+
+
+
+loadData();
+
+loadBosses();
+
+loadBossSelect();
+
+updateCurrent();
+
+
+
+</script>
+
+
+</body>
+
+</html>
