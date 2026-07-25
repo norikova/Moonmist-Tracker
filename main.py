@@ -682,6 +682,10 @@ def boss_stats():
 
     return jsonify(locations)
 
+@app.route("/overlay")
+def overlay():
+    return send_file("overlay.html")
+
 @app.route("/history")
 def history():
     return send_file(
