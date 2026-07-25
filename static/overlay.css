@@ -1,0 +1,162 @@
+body {
+
+    margin: 0;
+
+    background: transparent;
+
+    font-family: "Segoe UI", sans-serif;
+
+}
+
+
+.tracker {
+
+
+    width: 330px;
+
+
+    padding: 22px;
+
+
+    background:
+    rgba(10, 8, 15, 0.65);
+
+
+    border:
+
+    1px solid rgba(212,175,55,0.45);
+
+
+    border-radius: 18px;
+
+
+    color: #eee;
+
+
+    backdrop-filter: blur(8px);
+
+
+    box-shadow:
+
+    0 0 30px rgba(212,175,55,0.25);
+
+
+
+}
+
+
+
+/* заголовок */
+
+.label {
+
+
+    font-size: 13px;
+
+
+    letter-spacing: 4px;
+
+
+    text-transform: uppercase;
+
+
+    color: #d4af37;
+
+
+    opacity: .9;
+
+
+}
+
+
+
+/* имя босса */
+
+.boss {
+
+
+    margin-top: 12px;
+
+
+    font-size: 28px;
+
+
+    font-weight: 700;
+
+
+    color:white;
+
+
+    text-shadow:
+
+    0 0 10px rgba(255,255,255,.25);
+
+
+}
+
+
+
+/* разделитель */
+
+.space {
+
+    height: 15px;
+
+}
+
+
+
+/* статистика */
+
+.stat {
+
+
+    font-size:18px;
+
+
+    margin-top:8px;
+
+
+    color:#ddd;
+
+
+}
+
+
+
+#deaths {
+
+
+    color:#d65a5a;
+
+
+    font-weight:bold;
+
+
+}
+
+
+
+#progress {
+
+
+    color:#d4af37;
+
+
+    font-weight:bold;
+
+
+}
+
+
+
+#percent {
+
+
+    color:#8fd17f;
+
+
+    font-weight:bold;
+
+
+}
