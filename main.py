@@ -666,6 +666,14 @@ def history():
         os.path.join(BASE_DIR, "history.html")
     )
 
+@app.route("/download-db")
+def download_db():
+
+    return send_file(
+        os.path.join(BASE_DIR, "moonmist.db"),
+        as_attachment=True
+    )
+
 if __name__ == "__main__":
     app.run(
         host="0.0.0.0",
