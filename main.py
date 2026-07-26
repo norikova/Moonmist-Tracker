@@ -394,10 +394,73 @@ def kill_current():
     })
 
 
+
+    
     return jsonify({
 
         "success": True
 
+    })
+# ОТМЕНА ПОСЛЕДНЕГО УБИЙСТВА
+@app.route("/undo_kill", methods=["POST"])
+def undo_kill():
+
+    conn = get_connection()
+    cursor = conn.cursor()
+
+
+    kill = cursor.execute(
+        """
+        SELECT *
+        FROM kills
+        ORDER BY id DESC
+        LIMIT 1
+        """
+    ).fetchone()
+
+
+    if not kill:
+
+        conn.close()
+
+        return jsonify({
+            "success": False,
+            "error": "Нет убийств"
+        })
+
+
+    boss_id = kill["boss_id"]
+
+
+    cursor.execute(
+        """
+        DELETE FROM kills
+        WHERE id = ?
+        """,
+        (kill["id"],)
+    )
+
+
+    conn.commit()
+    conn.close()
+
+
+    bosses = load_bosses()
+
+
+    for boss in bosses:
+
+        if boss["id"] == boss_id:
+
+            boss["defeated"] = False
+
+
+    save_bosses(bosses)
+
+
+    return jsonify({
+        "success": True,
+        "boss": kill["boss_name"]
     })
 
 
