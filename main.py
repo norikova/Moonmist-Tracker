@@ -148,18 +148,23 @@ def bosses():
 @app.route("/data")
 def data():
 
-    bosses = load_bosses()
     current = load_current()
 
+    bosses = load_bosses()
 
-    killed = sum(
-        1 for boss in bosses
-        if boss.get("defeated", False)
-    )
+    conn = get_connection()
+    cursor = conn.cursor()
 
+    killed = cursor.execute(
+        """
+        SELECT COUNT(*)
+        FROM kills
+        """
+    ).fetchone()[0]
+
+    conn.close()
 
     total = len(bosses)
-
 
     return jsonify({
 
@@ -171,16 +176,23 @@ def data():
         round(killed / total * 100,1)
         if total else 0,
 
-
         "current_boss":
-        current["boss_name"],
+        current.get(
+            "boss_name",
+            "Не выбран"
+        ),
 
         "current_location":
-        current.get("location",""),
-
+        current.get(
+            "location",
+            ""
+        ),
 
         "deaths":
-        current["deaths"]
+        current.get(
+            "deaths",
+            0
+        )
 
     })
 
