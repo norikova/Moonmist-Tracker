@@ -297,8 +297,50 @@ def undo_death():
 
     current = load_current()
 
-    if current["deaths"] > 0:
-        current["deaths"] -= 1
+    if current["boss_id"] is None:
+        return jsonify({
+            "success": False,
+            "error": "No boss selected"
+        })
+
+    if current["deaths"] <= 0:
+        return jsonify({
+            "success": False,
+            "error": "Нет смертей для отката"
+        })
+
+    conn = get_connection()
+    cursor = conn.cursor()
+
+    # Удаляем последнюю запись о смерти
+    cursor.execute(
+        """
+        DELETE FROM attempts
+        WHERE id = (
+            SELECT id
+            FROM attempts
+            WHERE boss_id = ?
+            ORDER BY id DESC
+            LIMIT 1
+        )
+        """,
+        (current["boss_id"],)
+    )
+
+    # Проверяем, действительно ли запись была удалена
+    if cursor.rowcount == 0:
+        conn.close()
+
+        return jsonify({
+            "success": False,
+            "error": "Запись смерти не найдена в базе"
+        })
+
+    conn.commit()
+    conn.close()
+
+    # Уменьшаем текущий счётчик
+    current["deaths"] -= 1
 
     save_current(current)
 
@@ -405,33 +447,46 @@ def kill_current():
 @app.route("/undo_kill", methods=["POST"])
 def undo_kill():
 
+    current = load_current()
+
+    # После убийства current очищается,
+    # поэтому F8 можно использовать только когда
+    # сейчас нет активного босса.
+    if current["boss_id"] is not None:
+        return jsonify({
+            "success": False,
+            "error": "Сначала должен быть завершён текущий бой"
+        })
+
     conn = get_connection()
     cursor = conn.cursor()
 
-
-    kill = cursor.execute(
+    # Берём последнее убийство
+    cursor.execute(
         """
-        SELECT *
+        SELECT
+            id,
+            boss_id,
+            boss_name,
+            location,
+            attempts
         FROM kills
         ORDER BY id DESC
         LIMIT 1
         """
-    ).fetchone()
+    )
 
+    kill = cursor.fetchone()
 
-    if not kill:
-
+    if kill is None:
         conn.close()
 
         return jsonify({
             "success": False,
-            "error": "Нет убийств"
+            "error": "Записей об убийствах нет"
         })
 
-
-    boss_id = kill["boss_id"]
-
-
+    # Удаляем последнее убийство
     cursor.execute(
         """
         DELETE FROM kills
@@ -440,27 +495,46 @@ def undo_kill():
         (kill["id"],)
     )
 
-
     conn.commit()
     conn.close()
 
-
+    # Возвращаем босса в bosses.json
     bosses = load_bosses()
-
 
     for boss in bosses:
 
-        if boss["id"] == boss_id:
+        if boss["id"] == kill["boss_id"]:
 
             boss["defeated"] = False
 
+            break
 
     save_bosses(bosses)
 
+    # Восстанавливаем текущий бой
+    save_current({
+
+        "boss_id": kill["boss_id"],
+
+        "boss_name": kill["boss_name"],
+
+        "location": kill["location"],
+
+        "deaths": kill["attempts"]
+
+    })
 
     return jsonify({
         "success": True,
-        "boss": kill["boss_name"]
+
+        "boss_id": kill["boss_id"],
+
+        "boss_name": kill["boss_name"],
+
+        "location": kill["location"],
+
+        "deaths": kill["attempts"]
+
     })
 
 
