@@ -1,26 +1,19 @@
 import os
-import sqlite3
+import psycopg2
+from psycopg2.extras import RealDictCursor
+
 
 DATABASE_URL = os.environ.get("DATABASE_URL")
-DB = "moonmist.db"
 
 
 def get_connection():
 
-    # Render / PostgreSQL
-    if DATABASE_URL:
+    if not DATABASE_URL:
+        raise RuntimeError(
+            "DATABASE_URL не задана в переменных окружения"
+        )
 
-        import psycopg2
-        from psycopg2.extras import RealDictCursor
-
-        conn = psycopg2.connect(DATABASE_URL)
-        conn.cursor_factory = RealDictCursor
-
-        return conn
-
-    # Локально / SQLite
-    conn = sqlite3.connect(DB)
-    conn.row_factory = sqlite3.Row
+    conn = psycopg2.connect(DATABASE_URL)
 
     return conn
 
@@ -28,83 +21,46 @@ def get_connection():
 def init_db():
 
     conn = get_connection()
+
     cursor = conn.cursor()
 
-    if DATABASE_URL:
+    cursor.execute("""
+    CREATE TABLE IF NOT EXISTS kills (
 
-        # PostgreSQL
-        cursor.execute("""
-        CREATE TABLE IF NOT EXISTS kills (
+        id SERIAL PRIMARY KEY,
 
-            id SERIAL PRIMARY KEY,
+        boss_id INTEGER,
 
-            boss_id INTEGER,
+        boss_name TEXT,
 
-            boss_name TEXT,
+        location TEXT,
 
-            location TEXT,
+        attempts INTEGER,
 
-            attempts INTEGER,
+        date TEXT
 
-            date TEXT
+    )
+    """)
 
-        )
-        """)
+    cursor.execute("""
+    CREATE TABLE IF NOT EXISTS attempts (
 
-        cursor.execute("""
-        CREATE TABLE IF NOT EXISTS attempts (
+        id SERIAL PRIMARY KEY,
 
-            id SERIAL PRIMARY KEY,
+        boss_id INTEGER,
 
-            boss_id INTEGER,
+        boss_name TEXT,
 
-            boss_name TEXT,
+        location TEXT,
 
-            location TEXT,
+        date TEXT
 
-            date TEXT
-
-        )
-        """)
-
-    else:
-
-        # SQLite
-        cursor.execute("""
-        CREATE TABLE IF NOT EXISTS kills (
-
-            id INTEGER PRIMARY KEY AUTOINCREMENT,
-
-            boss_id INTEGER,
-
-            boss_name TEXT,
-
-            location TEXT,
-
-            attempts INTEGER,
-
-            date TEXT
-
-        )
-        """)
-
-        cursor.execute("""
-        CREATE TABLE IF NOT EXISTS attempts (
-
-            id INTEGER PRIMARY KEY AUTOINCREMENT,
-
-            boss_id INTEGER,
-
-            boss_name TEXT,
-
-            location TEXT,
-
-            date TEXT
-
-        )
-        """)
+    )
+    """)
 
     conn.commit()
+
+    cursor.close()
     conn.close()
 
 
@@ -112,4 +68,4 @@ if __name__ == "__main__":
 
     init_db()
 
-    print("Database created")
+    print("PostgreSQL database initialized")
