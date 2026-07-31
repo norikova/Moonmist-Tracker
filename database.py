@@ -13,7 +13,10 @@ def get_connection():
             "DATABASE_URL не задана в переменных окружения"
         )
 
-    conn = psycopg2.connect(DATABASE_URL)
+    conn = psycopg2.connect(
+        DATABASE_URL,
+        cursor_factory=RealDictCursor
+    )
 
     return conn
 
@@ -21,7 +24,6 @@ def get_connection():
 def init_db():
 
     conn = get_connection()
-
     cursor = conn.cursor()
 
     cursor.execute("""
