@@ -3,7 +3,7 @@ from flask_cors import CORS
 from datetime import datetime
 import json
 import os
-from database import get_connection
+from database import get_connection, init_db
 
 app = Flask(__name__)
 
@@ -822,6 +822,8 @@ def download_db():
         os.path.join(BASE_DIR, "moonmist.db"),
         as_attachment=True
     )
+
+init_db()
 
 if __name__ == "__main__":
     app.run(
