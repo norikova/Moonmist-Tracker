@@ -155,12 +155,14 @@ def data():
     conn = get_connection()
     cursor = conn.cursor()
 
-    killed = cursor.execute(
+    cursor.execute(
         """
         SELECT COUNT(*)
         FROM kills
         """
-    ).fetchone()[0]
+    )
+    
+    killed = cursor.fetchone()["count"]
 
     conn.close()
 
@@ -272,7 +274,7 @@ def death():
             date
         )
 
-        VALUES (?, ?, ?, ?)
+        VALUES (%s, %s, %s, %s)
         """,
 
         (
@@ -319,7 +321,7 @@ def undo_death():
         WHERE id = (
             SELECT id
             FROM attempts
-            WHERE boss_id = ?
+            WHERE boss_id = %s
             ORDER BY id DESC
             LIMIT 1
         )
@@ -389,7 +391,7 @@ def kill_current():
             date
         )
 
-        VALUES (?, ?, ?, ?, ?)
+        VALUES (%s, %s, %s, %s, %s)
         """,
 
         (
@@ -490,7 +492,7 @@ def undo_kill():
     cursor.execute(
         """
         DELETE FROM kills
-        WHERE id = ?
+        WHERE id = %s
         """,
         (kill["id"],)
     )
@@ -575,12 +577,14 @@ def stats():
 
     # количество убитых боссов
 
-    killed = cursor.execute(
+    cursor.execute(
         """
         SELECT COUNT(*) 
         FROM kills
         """
-    ).fetchone()[0]
+    )
+    
+    killed = cursor.fetchone()["count"]
 
 
 
@@ -590,38 +594,42 @@ def stats():
 
     # все попытки
 
-    total_deaths = cursor.execute(
+    cursor.execute(
         """
         SELECT COUNT(*)
         FROM attempts
         """
-    ).fetchone()[0]
+    )
+    
+    total_deaths = cursor.fetchone()["count"]
 
 
 
     # топ сложных боссов
 
-    top_deadly = cursor.execute(
+    cursor.execute(
         """
         SELECT 
             boss_name,
             COUNT(*) as deaths
-
+    
         FROM attempts
-
+    
         GROUP BY boss_name
-
+    
         ORDER BY deaths DESC
-
+    
         LIMIT 3
         """
-    ).fetchall()
+    )
+    
+    top_deadly = cursor.fetchall()
 
 
 
     # последние победы
 
-    history = cursor.execute(
+    cursor.execute(
         """
         SELECT
             boss_id,
@@ -629,14 +637,16 @@ def stats():
             location,
             attempts,
             date
-
+    
         FROM kills
-
+    
         ORDER BY id DESC
-
+    
         LIMIT 10
         """
-    ).fetchall()
+    )
+    
+    history = cursor.fetchall()
 
 
 
@@ -696,29 +706,33 @@ def boss_stats():
 
 
 
-    attempts = cursor.execute(
+    cursor.execute(
         """
         SELECT
             boss_id,
             COUNT(*) as deaths
-
+    
         FROM attempts
-
+    
         GROUP BY boss_id
         """
-    ).fetchall()
+    )
+    
+    attempts = cursor.fetchall()
 
 
 
-    kills = cursor.execute(
+    cursor.execute(
         """
         SELECT
             boss_id,
             date
-
+    
         FROM kills
         """
-    ).fetchall()
+    )
+    
+    kills = cursor.fetchall()
 
 
 
@@ -815,13 +829,6 @@ def history():
         os.path.join(BASE_DIR, "history.html")
     )
 
-@app.route("/download-db")
-def download_db():
-
-    return send_file(
-        os.path.join(BASE_DIR, "moonmist.db"),
-        as_attachment=True
-    )
 
 init_db()
 
