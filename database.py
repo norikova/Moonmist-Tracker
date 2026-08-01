@@ -24,9 +24,9 @@ def get_connection():
 def init_db():
 
     conn = get_connection()
-
     cursor = conn.cursor()
 
+    # Убийства
     cursor.execute("""
     CREATE TABLE IF NOT EXISTS kills (
 
@@ -45,6 +45,7 @@ def init_db():
     )
     """)
 
+    # Смерти / попытки
     cursor.execute("""
     CREATE TABLE IF NOT EXISTS attempts (
 
@@ -59,6 +60,59 @@ def init_db():
         date TEXT
 
     )
+    """)
+
+    # Боссы
+    cursor.execute("""
+    CREATE TABLE IF NOT EXISTS bosses (
+
+        id INTEGER PRIMARY KEY,
+
+        name TEXT NOT NULL,
+
+        location TEXT,
+
+        type TEXT,
+
+        defeated BOOLEAN DEFAULT FALSE
+
+    )
+    """)
+
+    # Текущий бой
+    cursor.execute("""
+    CREATE TABLE IF NOT EXISTS current (
+
+        id INTEGER PRIMARY KEY,
+
+        boss_id INTEGER,
+
+        boss_name TEXT,
+
+        location TEXT,
+
+        deaths INTEGER DEFAULT 0
+
+    )
+    """)
+
+    # Гарантируем одну запись текущего состояния
+    cursor.execute("""
+    INSERT INTO current (
+        id,
+        boss_id,
+        boss_name,
+        location,
+        deaths
+    )
+    VALUES (
+        1,
+        NULL,
+        'Не выбран',
+        '',
+        0
+    )
+    ON CONFLICT (id) DO NOTHING
     """)
 
     conn.commit()
