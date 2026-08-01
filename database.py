@@ -120,9 +120,65 @@ def init_db():
     cursor.close()
     conn.close()
 
+def migrate_bosses():
+
+    conn = get_connection()
+    cursor = conn.cursor()
+
+    base_dir = os.path.dirname(os.path.abspath(__file__))
+    bosses_file = os.path.join(base_dir, "bosses.json")
+
+    if not os.path.exists(bosses_file):
+        print("bosses.json не найден")
+        conn.close()
+        return
+
+    import json
+
+    with open(
+        bosses_file,
+        "r",
+        encoding="utf-8"
+    ) as f:
+        bosses = json.load(f)
+
+    for boss in bosses:
+
+        cursor.execute(
+            """
+            INSERT INTO bosses (
+                id,
+                name,
+                location,
+                type,
+                defeated
+            )
+            VALUES (%s, %s, %s, %s, %s)
+            ON CONFLICT (id)
+            DO UPDATE SET
+                name = EXCLUDED.name,
+                location = EXCLUDED.location,
+                type = EXCLUDED.type
+            """,
+            (
+                boss["id"],
+                boss["name"],
+                boss.get("location", ""),
+                boss.get("type", ""),
+                boss.get("defeated", False)
+            )
+        )
+
+    conn.commit()
+
+    cursor.close()
+    conn.close()
+
+    print(f"Мигрировано боссов: {len(bosses)}")
 
 if __name__ == "__main__":
 
     init_db()
+    migrate_bosses()
 
     print("PostgreSQL database initialized")
