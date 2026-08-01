@@ -770,31 +770,25 @@ def boss_stats():
         boss_data = {
 
             "id": boss["id"],
-
+        
             "name": boss["name"],
-
-            "type": boss.get("type",""),
-
-
+        
+            "type": boss.get("type", ""),
+        
             "deaths":
             death_map.get(
                 boss["id"],
                 0
             ),
-
-
+        
             "defeated":
-            boss.get(
-                "defeated",
-                False
-            ),
-
-
+            boss["id"] in kill_map,
+        
             "killed_date":
             kill_map.get(
                 boss["id"]
             )
-
+        
         }
 
 
