@@ -642,7 +642,7 @@ def stats():
     
         ORDER BY id DESC
     
-        LIMIT 10
+        LIMIT 5
         """
     )
     
