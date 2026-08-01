@@ -13,16 +13,16 @@ body {
     min-height: 100vh;
 
     background:
-    radial-gradient(
-        circle at top,
-        rgba(185,155,80,0.15),
-        transparent 35%
-    ),
-    linear-gradient(
-        135deg,
-        #090909,
-        #17130d
-    );
+        radial-gradient(
+            circle at top,
+            rgba(185,155,80,0.15),
+            transparent 35%
+        ),
+        linear-gradient(
+            135deg,
+            #090909,
+            #17130d
+        );
 
     color: #e8e2d0;
 
@@ -31,7 +31,9 @@ body {
 }
 
 
-/* основной контейнер */
+/* ==========================
+   ОСНОВНОЙ КОНТЕЙНЕР
+========================== */
 
 .container {
 
@@ -44,8 +46,9 @@ body {
 }
 
 
-
-/* заголовок */
+/* ==========================
+   ЗАГОЛОВОК
+========================== */
 
 h1 {
 
@@ -60,37 +63,113 @@ h1 {
     letter-spacing: 2px;
 
     text-shadow:
-    0 0 15px rgba(214,181,108,0.4);
+        0 0 15px rgba(214,181,108,0.4);
 
     margin-bottom: 35px;
 
 }
 
 
+h2 {
 
-/* прогресс */
+    color: #d8c48a;
+
+    font-family: "Cinzel", serif;
+
+    border-bottom:
+        1px solid
+        rgba(216,196,138,0.3);
+
+    padding-bottom: 10px;
+
+}
+
+
+/* ==========================
+   ОБЩИЕ КАРТОЧКИ
+========================== */
+
+.current-box {
+
+    background:
+        linear-gradient(
+            145deg,
+            #151b29,
+            #0d111b
+        );
+
+    border:
+        1px solid
+        rgba(216,196,138,0.35);
+
+    border-radius: 18px;
+
+    box-shadow:
+        0 0 25px
+        rgba(0,0,0,0.6);
+
+    padding: 25px;
+
+    margin-bottom: 20px;
+
+}
+
+
+/* ==========================
+   ТЕКУЩИЙ БОСС
+========================== */
+
+.current-info {
+
+    margin-top: 20px;
+
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 10px;
+
+    font-size: 17px;
+
+}
+
+
+.current-info span {
+
+    color: #d6b56c;
+
+    font-weight: 600;
+
+}
+
+
+/* ==========================
+   ПРОГРЕСС
+========================== */
 
 .progress-box {
 
     background:
-    rgba(255,255,255,0.05);
+        rgba(255,255,255,0.05);
 
     backdrop-filter:
-    blur(12px);
+        blur(12px);
 
     border:
-
-    1px solid rgba(214,181,108,0.25);
+        1px solid
+        rgba(214,181,108,0.25);
 
     padding: 25px;
 
     border-radius: 20px;
 
     box-shadow:
-    0 10px 40px rgba(0,0,0,0.5);
+        0 10px 40px
+        rgba(0,0,0,0.5);
+
+    margin-bottom: 20px;
 
 }
-
 
 
 #progress-text {
@@ -102,8 +181,12 @@ h1 {
 }
 
 
+.progress-percent {
 
-/* полоска */
+    color: #aaa;
+
+}
+
 
 .progress-bar {
 
@@ -111,9 +194,7 @@ h1 {
 
     margin-top: 20px;
 
-    background:
-
-    #252116;
+    background: #252116;
 
     border-radius: 20px;
 
@@ -122,212 +203,82 @@ h1 {
 }
 
 
-
 #progress-fill {
 
     height: 100%;
 
     background:
-
-    linear-gradient(
-        90deg,
-        #8c6b28,
-        #e0c26a
-    );
+        linear-gradient(
+            90deg,
+            #8c6b28,
+            #e0c26a
+        );
 
     box-shadow:
-
-    0 0 20px #d6b56c;
+        0 0 20px
+        #d6b56c;
 
     transition:
-    width .5s ease;
+        width .5s ease;
 
 }
 
 
+/* ==========================
+   СЧЁТЧИК ПОБЕЖДЁННЫХ
+========================== */
 
-/* кнопки */
+.killed-count-box {
 
-.filters {
-
-    display:flex;
-
-    flex-wrap:wrap;
-
-    gap:12px;
-
-    margin:30px 0;
+    text-align: center;
 
 }
 
 
+.killed-count-box h2 {
 
-button {
-
-    background:
-
-    rgba(255,255,255,0.06);
-
-    color:#e8e2d0;
-
-    border:
-
-    1px solid rgba(214,181,108,0.35);
-
-    padding:
-
-    12px 18px;
-
-    border-radius:
-
-    12px;
-
-    cursor:pointer;
-
-    font-size:15px;
-
-    transition:.25s;
+    text-align: left;
 
 }
 
 
+#killed-count {
 
-button:hover {
+    font-family: "Cinzel", serif;
 
-    background:
-
-    rgba(214,181,108,0.18);
-
-    transform:
-
-    translateY(-2px);
-
-    box-shadow:
-
-    0 5px 20px rgba(214,181,108,.2);
+    padding: 5px 0 10px;
 
 }
 
 
+.killed-number {
 
-/* карточки боссов */
+    font-size: 48px;
 
+    font-weight: 700;
 
-.boss {
+    color: #d6b56c;
 
-    background:
-
-    rgba(255,255,255,0.05);
-
-    backdrop-filter:
-
-    blur(10px);
-
-    border:
-
-    1px solid rgba(255,255,255,.1);
-
-    padding:20px;
-
-    margin:15px 0;
-
-    border-radius:18px;
-
-    transition:.3s;
+    text-shadow:
+        0 0 15px
+        rgba(214,181,108,0.5);
 
 }
 
 
+.killed-total {
 
-.boss:hover {
+    font-size: 30px;
 
-    transform:
-
-    translateX(6px);
-
-    border-color:
-
-    rgba(214,181,108,.6);
+    color: #777;
 
 }
 
 
+/* ==========================
+   ПОИСК
+========================== */
 
-/* побеждённые */
-
-
-.boss.defeated {
-
-    opacity:.55;
-
-    border-color:
-
-    rgba(80,180,80,.3);
-
-}
-
-
-
-/* название */
-
-
-.boss-title {
-
-    display:flex;
-
-    align-items:center;
-
-    gap:15px;
-
-    font-family:
-
-    "Cinzel", serif;
-
-    font-size:22px;
-
-}
-
-
-
-.boss-title input {
-
-    width:22px;
-
-    height:22px;
-
-    accent-color:#d6b56c;
-
-    cursor:pointer;
-
-}
-
-
-
-/* локация */
-
-.location {
-
-    margin-top:12px;
-
-    color:#aaa;
-
-    font-size:15px;
-
-}
-
-
-
-/* тип */
-
-.type {
-
-    margin-top:10px;
-
-    color:#d6b56c;
-
-    font-weight:600;
-
-}
 .search-box {
 
     margin: 25px 0;
@@ -337,318 +288,487 @@ button:hover {
 
 #search {
 
-    width:100%;
+    width: 100%;
 
-    padding:15px 20px;
+    padding: 15px 20px;
 
-    border-radius:15px;
+    border-radius: 15px;
 
-    border:1px solid rgba(214,181,108,0.35);
+    border:
+        1px solid
+        rgba(214,181,108,0.35);
 
     background:
+        rgba(255,255,255,0.06);
 
-    rgba(255,255,255,0.06);
+    color: #e8e2d0;
 
-    color:#e8e2d0;
+    font-size: 18px;
 
-    font-size:18px;
+    outline: none;
 
-    outline:none;
-
-    backdrop-filter:blur(10px);
+    backdrop-filter:
+        blur(10px);
 
 }
 
 
 #search::placeholder {
 
-    color:#aaa;
+    color: #aaa;
 
 }
 
 
 #search:focus {
 
-    border-color:#d6b56c;
+    border-color: #d6b56c;
 
     box-shadow:
-
-    0 0 20px rgba(214,181,108,0.25);
-
-}
-
-.location-title {
-
-font-size: 22px;
-margin-top:25px;
-color:#d4af37;
+        0 0 20px
+        rgba(214,181,108,0.25);
 
 }
 
+
+/* ==========================
+   ВЫБОР ТЕКУЩЕГО БОССА
+========================== */
+
+#boss-search {
+
+    width: 100%;
+
+    padding: 14px 18px;
+
+    margin-bottom: 12px;
+
+    border-radius: 12px;
+
+    border:
+        1px solid
+        rgba(214,181,108,0.35);
+
+    background:
+        rgba(255,255,255,0.06);
+
+    color: #e8e2d0;
+
+    font-size: 17px;
+
+    outline: none;
+
+}
+
+
+#boss-search:focus {
+
+    border-color: #d6b56c;
+
+    box-shadow:
+        0 0 15px
+        rgba(214,181,108,0.2);
+
+}
+
+
+/* ==========================
+   КНОПКИ
+========================== */
+
+button {
+
+    background:
+        rgba(255,255,255,0.06);
+
+    color: #e8e2d0;
+
+    border:
+        1px solid
+        rgba(214,181,108,0.35);
+
+    padding:
+        12px 18px;
+
+    border-radius: 12px;
+
+    cursor: pointer;
+
+    font-size: 15px;
+
+    transition: .25s;
+
+}
+
+
+button:hover {
+
+    background:
+        rgba(214,181,108,0.18);
+
+    transform:
+        translateY(-2px);
+
+    box-shadow:
+        0 5px 20px
+        rgba(214,181,108,.2);
+
+}
+
+
+/* ==========================
+   ФИЛЬТРЫ
+========================== */
+
+.filters {
+
+    display: flex;
+
+    flex-wrap: wrap;
+
+    gap: 12px;
+
+    margin: 30px 0;
+
+}
+
+
+/* ==========================
+   КАРТОЧКА БОССА
+========================== */
+
+.boss {
+
+    background:
+        rgba(255,255,255,0.05);
+
+    backdrop-filter:
+        blur(10px);
+
+    border:
+        1px solid
+        rgba(255,255,255,.1);
+
+    padding: 20px;
+
+    margin: 15px 0;
+
+    border-radius: 18px;
+
+    transition: .3s;
+
+}
+
+
+.boss:hover {
+
+    transform:
+        translateX(6px);
+
+    border-color:
+        rgba(214,181,108,.6);
+
+}
+
+
+/* ==========================
+   ПОБЕЖДЁННЫЙ БОСС
+========================== */
+
+.boss.defeated {
+
+    opacity: .55;
+
+    border-color:
+        rgba(80,180,80,.3);
+
+}
+
+
+.boss.defeated .boss-title span {
+
+    text-decoration:
+        line-through;
+
+}
+
+
+/* ==========================
+   НАЗВАНИЕ БОССА
+========================== */
+
+.boss-title {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 15px;
+
+    font-family:
+        "Cinzel", serif;
+
+    font-size: 22px;
+
+}
+
+
+.boss-title input {
+
+    width: 22px;
+
+    height: 22px;
+
+    accent-color:
+        #d6b56c;
+
+    cursor: pointer;
+
+}
+
+
+/* ==========================
+   ЛОКАЦИЯ
+========================== */
+
+.location {
+
+    margin-top: 12px;
+
+    color: #aaa;
+
+    font-size: 15px;
+
+}
+
+
+/* ==========================
+   ТИП
+========================== */
+
+.type {
+
+    margin-top: 10px;
+
+    color: #d6b56c;
+
+    font-weight: 600;
+
+}
+
+
+/* ==========================
+   ТАБЛИЦА
+========================== */
 
 .boss-table {
 
-width:100%;
-border-collapse:collapse;
-table-layout:fixed;
+    width: 100%;
+
+    border-collapse:
+        collapse;
+
+    table-layout:
+        fixed;
 
 }
 
 
 .boss-table th {
 
-padding:14px;
-text-align:left;
-background:#151515;
+    padding: 14px;
+
+    text-align: left;
+
+    background: #151515;
 
 }
 
 
 .boss-table td {
 
-padding:12px;
+    padding: 12px;
 
-border-bottom:1px solid #333;
+    border-bottom:
+        1px solid #333;
 
-overflow:hidden;
-text-overflow:ellipsis;
-white-space:nowrap;
+    overflow: hidden;
+
+    text-overflow:
+        ellipsis;
+
+    white-space:
+        nowrap;
 
 }
-
-
-/* ширина колонок */
 
 
 .boss-table th:nth-child(1),
-.boss-table td:nth-child(1){
+.boss-table td:nth-child(1) {
 
-width:30%;
+    width: 30%;
 
 }
-
 
 
 .boss-table th:nth-child(2),
-.boss-table td:nth-child(2){
+.boss-table td:nth-child(2) {
 
-width:35%;
+    width: 35%;
 
 }
-
 
 
 .boss-table th:nth-child(3),
-.boss-table td:nth-child(3){
+.boss-table td:nth-child(3) {
 
-width:15%;
-text-align:center;
+    width: 15%;
+
+    text-align: center;
 
 }
-
 
 
 .boss-table th:nth-child(4),
-.boss-table td:nth-child(4){
+.boss-table td:nth-child(4) {
 
-width:20%;
-text-align:center;
+    width: 20%;
+
+    text-align: center;
 
 }
-
 
 
 .boss-table tr:hover {
 
-background:#222;
+    background: #222;
 
 }
+
+
+/* ==========================
+   СТАРЫЕ СТИЛИ ДЛЯ HISTORY
+========================== */
 
 .stats-row {
 
-display:flex;
+    display: flex;
 
-gap:20px;
+    gap: 20px;
 
 }
-
 
 
 .stats-row .current-box {
 
-flex:1;
+    flex: 1;
 
 }
 
 
+.top-boss {
 
-.filters {
+    background:
+        rgba(255,255,255,0.03);
 
-display:flex;
+    border-radius: 12px;
 
-gap:15px;
+    padding: 10px;
 
-margin-bottom:20px;
+    margin-bottom: 10px;
 
 }
 
 
+.top-boss h3 {
+
+    color: #ddd;
+
+}
+
+
+/* ==========================
+   HISTORY FILTERS
+========================== */
 
 .filters input,
 .filters select {
 
+    background: #151515;
 
-background:#151515;
+    color: white;
 
-color:white;
+    border:
+        1px solid #444;
 
-border:1px solid #444;
+    border-radius: 12px;
 
-border-radius:12px;
+    padding:
+        12px 15px;
 
-padding:12px 15px;
-
-font-size:16px;
+    font-size: 16px;
 
 }
-
 
 
 .filters input {
 
-flex:1;
+    flex: 1;
 
 }
-
 
 
 .filters select {
 
-cursor:pointer;
+    cursor: pointer;
 
 }
-
 
 
 .filters input:focus,
 .filters select:hover {
 
-border-color:#b8860b;
-
-}
-
-body {
-
-background:
-linear-gradient(
-180deg,
-#080b12,
-#111827
-);
-
-color:#eee;
-
-font-family:
-"Segoe UI",
-sans-serif;
+    border-color: #b8860b;
 
 }
 
 
+/* ==========================
+   АДАПТИВНОСТЬ
+========================== */
 
-.main-title {
+@media (max-width: 700px) {
 
-text-align:center;
+    .container {
 
-font-size:42px;
+        width: 94%;
 
-letter-spacing:2px;
+        margin: 20px auto;
 
-color:#d8c48a;
-
-text-shadow:
-
-0 0 15px #d8c48a;
-
-}
+    }
 
 
+    h1 {
 
-.current-box {
+        font-size: 30px;
 
-
-background:
-
-linear-gradient(
-145deg,
-#151b29,
-#0d111b
-);
+    }
 
 
-border:
+    .current-info {
 
-1px solid rgba(216,196,138,0.35);
+        font-size: 15px;
 
-
-border-radius:18px;
-
-
-box-shadow:
-
-0 0 25px rgba(0,0,0,0.6);
+    }
 
 
-padding:25px;
+    .killed-number {
+
+        font-size: 40px;
+
+    }
 
 
-}
+    .boss-title {
 
-
-
-.current-box h2 {
-
-
-color:#d8c48a;
-
-
-border-bottom:
-
-1px solid rgba(216,196,138,0.3);
-
-
-padding-bottom:10px;
-
-
-}
-
-
-
-.top-boss {
-
-
-background:
-
-rgba(255,255,255,0.03);
-
-
-border-radius:12px;
-
-
-padding:10px;
-
-
-margin-bottom:10px;
-
-
-}
-
-
-
-.top-boss h3 {
-
-
-color:#ddd;
-
-
-}
+        font-size: 
