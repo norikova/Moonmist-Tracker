@@ -23,62 +23,51 @@
 </h1>
 
 
-
+<!-- ========================= -->
 <!-- ВЕРХНИЕ КАРТОЧКИ -->
+<!-- ========================= -->
+
 
 <div class="stats-row">
 
 
 <div class="current-box">
 
-
 <h2>
 📊 Общая статистика
 </h2>
-
 
 <div id="stats">
 Загрузка...
 </div>
 
-
 </div>
 
 
 
-
 <div class="current-box">
-
 
 <h2>
 💀 Самые сложные боссы
 </h2>
 
-
 <div id="top">
-
 Загрузка...
-
 </div>
 
-
 </div>
-
-
 
 
 
 <div class="current-box">
 
-
 <h2>
 🏆 Последние победы
 </h2>
 
-
 <div id="history">
-
 Загрузка...
+</div>
 
 </div>
 
@@ -86,14 +75,10 @@
 </div>
 
 
-
-</div>
-
-
-
-
-
+<!-- ========================= -->
 <!-- ВСЕ БОССЫ -->
+<!-- ========================= -->
+
 
 <div class="current-box">
 
@@ -103,58 +88,69 @@
 </h2>
 
 
+<!-- ПОИСК И ФИЛЬТРЫ -->
 
 
 <div class="filters">
 
 
-<input 
+<input
 id="bossFilter"
 placeholder="🔍 Поиск босса..."
 oninput="filterBossList()"
 >
 
 
-
-
-<select id="statusFilter" onchange="filterBossList()">
-
+<select
+id="statusFilter"
+onchange="filterBossList()"
+>
 
 <option value="all">
 ⚔ Все статусы
 </option>
 
-
 <option value="alive">
 ⚔ Живые
 </option>
-
 
 <option value="dead">
 🏆 Убитые
 </option>
 
-
 </select>
 
 
-
-
-<select id="locationFilter" onchange="filterBossList()">
-
+<select
+id="regionFilter"
+onchange="filterBossList()"
+>
 
 <option value="all">
-📍 Все локации
+📍 Все регионы
 </option>
 
-
 </select>
-
 
 
 </div>
 
 
+<!-- ========================= -->
+<!-- РЕГИОНЫ -->
+<!-- ========================= -->
+
+
+<div
+id="region-tabs"
+class="region-tabs"
+>
+</div>
+
+
+<!-- ========================= -->
+<!-- ТАБЛИЦА БОССОВ -->
+<!-- ========================= -->
 
 
 <div id="boss-list">
@@ -164,415 +160,1246 @@ oninput="filterBossList()"
 </div>
 
 
+<!-- ========================= -->
+<!-- ОБОЗНАЧЕНИЯ -->
+<!-- ========================= -->
+
+
+<div class="legend-box">
+
+
+<h3>
+📖 ОБОЗНАЧЕНИЯ
+</h3>
+
+
+<p>
+💎 — Полубог
+</p>
+
+<p>
+⚔️ — Легендарный
+</p>
+
+<p>
+🗡️ — Великий
+</p>
+
+<p>
+🌑 — Ночной
+</p>
+
+<p>
+🌳 — Малое Древо
+</p>
+
+<p>
+💀 — Корень смерти
+</p>
+
+<p>
+⚪ — Узилище
+</p>
+
+<p>
+🌻 — Обычный
+</p>
+
+
 </div>
 
 
+<!-- ========================= -->
+<!-- ЗАМЕТКИ -->
+<!-- ========================= -->
+
+
+<div class="legend-box notes-box">
+
+
+<h3>
+📝 ЗАМЕТКИ
+</h3>
+
+
+<p>
+⭐ — основной сюжетный / обязательный для прохождения босс.
+</p>
+
+
+<p>
+Названия в таблице могут повторяться — микролокация позволяет определить конкретного босса.
+</p>
+
+
+<p>
+Количество попыток считается по фактическим смертям из базы данных.
+</p>
+
 
 </div>
 
+
+</div>
+
+
+</div>
 
 
 <script>
 
 
-async function loadStats(){
+// =====================================================
+// КРУПНЫЕ РЕГИОНЫ
+// =====================================================
+//
+// ВАЖНО:
+// bosses.json продолжает хранить настоящую микролокацию.
+// Здесь мы только определяем, к какому крупному региону
+// относится босс для визуальной группировки.
+//
 
+const REGIONS = [
 
-const response =
-await fetch("/stats");
+    "Замогилье",
 
+    "Плачущий полуостров",
 
-const data =
-await response.json();
+    "Озёрная Лиурния",
 
+    "Лейнделл, столица королевства",
 
+    "Лейнделл, столица пепла",
 
+    "Река Сиофра",
 
-document.getElementById("stats").innerHTML = `
+    "Река Ансель",
 
+    "Нокрон, Вечный город",
 
-<p>
-🏆 Побеждено:
-<b>${data.killed}</b>
-/
-<b>${data.total_bosses}</b>
-</p>
+    "Плато Альтус",
 
+    "Священное заснеженное поле",
 
-<p>
-⚔ Осталось:
-<b>${data.left}</b>
-</p>
+    "Вулкан Гельмир",
 
-`;
+    "Святое Древо Микеллы",
 
+    "Разрушающийся Фарум-Азула",
 
+    "Трон Элдена",
 
+    "Звёздные пустоши",
 
+    "Вершины великанов",
 
+    "Озеро Гнили",
 
-let top = document.getElementById("top");
+    "Мавзолей династии Могвинов",
 
+    "Низовье Глубокого Корня",
 
-top.innerHTML="";
+    "Царство Теней"
 
-
-
-data.top_deadly.slice(0,3).forEach((boss,index)=>{
-
-
-let medals = [
-"🥇",
-"🥈",
-"🥉"
 ];
 
 
-top.innerHTML += `
+// =====================================================
+// СООТВЕТСТВИЕ БОССОВ КРУПНЫМ РЕГИОНАМ
+// =====================================================
+//
+// Определяем регион по микролокации.
+// При этом сама микролокация никуда не исчезает.
+//
+
+const REGION_RULES = {
+
+    "Замогилье": [
+        "Замок Грозовой Завесы",
+        "Прибрежная пещера",
+        "Грязные катакомбы",
+        "Лесная пещера",
+        "Могила героя окраин",
+        "Деревня у вод призыва",
+        "Грязная пещера",
+        "Замогилье",
+        "Лачуга воителя",
+        "Грозовой холм",
+        "Часовня Ожидания",
+        "Узилище на Грозовом холме",
+        "Узилище одинокой ищейки",
+        "Пещера обучения",
+        "Пещера под дорогой",
+        "Туннель Замогилья",
+        "Руины поселения",
+        "Помертвелые катакомбы",
+        "Катакомбы под скалой",
+        "Озеро Эгхила"
+    ],
 
 
-<div class="top-boss">
+    "Плачущий полуостров": [
+        "Замок Морн",
+        "Малое Древо Эрд",
+        "Плачущее узилище",
+        "Подземная пещера",
+        "Ведущая к гробнице пещера",
+        "Плачущий полуостров",
+        "Ведущие в гробницу катакомбы",
+        "Катакомбы Колосажателя",
+        "Туннель Морна"
+    ],
 
 
-<h3>
-
-${medals[index]}
-${boss.name}
-
-</h3>
-
-
-<p>
-💀 ${boss.deaths} смертей
-</p>
-
-
-</div>
-
-
-`;
-
-
-});
-
-
-
-
-
-
-
-let history =
-document.getElementById("history");
+    "Озёрная Лиурния": [
+        "Узилище лиходея",
+        "Собор Мануса Целеса",
+        "Узилище главаря",
+        "Академия Райи Лукарии",
+        "Узилище Кукушки",
+        "Северо-восточное Малое Древо Эрд",
+        "Юго-западное Малое Древо Эрд",
+        "Кристальная пещера академии",
+        "Руины королевских владений",
+        "Кристальный туннель Райи Лукарии",
+        "Поместье Карии",
+        "Озёрная Лиурния",
+        "Усыпанный руинами обрыв",
+        "Тракт Беллума",
+        "Узилище королевской могилы",
+        "Храм клятв",
+        "Центральная Лиурния",
+        "Юг Лиурнии",
+        "Кристальная береговая пещера",
+        "Пещера тихого омута",
+        "Озеро Лиурнии",
+        "Катакомбы Чёрного ножа",
+        "Деревня альбиноров",
+        "Катакомбы у тупика",
+        "Катакомбы под утёсом"
+    ],
 
 
-history.innerHTML="";
+    "Лейнделл, столица королевства": [
+        "Святилище Древа Эрд",
+        "Вход в столицу",
+        "Боковая гробница Аурицы",
+        "Катакомбы Лейнделла",
+        "Подземелье отчуждения",
+        "Трон Элдена",
+        "Запечатанный туннель",
+        "Лачуга торговца-отшельника",
+        "Могила героя Аурицы",
+        "Священная башня Восточного Альтуса"
+    ],
+
+
+    "Лейнделл, столица пепла": [
+        "Столица пепла"
+    ],
+
+
+    "Река Сиофра": [
+        "Река Сиофра",
+        "Земли сятого рога",
+        "Земли святого рога"
+    ],
+
+
+    "Река Ансель": [
+        "Река Ансель"
+    ],
+
+
+    "Нокрон, Вечный город": [
+        "Нокрон, Вечный город",
+        "Акведук Сиофры"
+    ],
+
+
+    "Плато Альтус": [
+        "Доминула, деревня ветряной мельницы",
+        "Узилище золотой династии",
+        "Туннель Альтуса",
+        "Западные ворота Лейнделла",
+        "Могила героя-святого",
+        "Плато Альтуса",
+        "Руины Люкса",
+        "Кровавые руины",
+        "Грот парфюмера",
+        "Старый туннель Альтуса",
+        "Малое Древо Эрд",
+        "Сумрачный замок"
+    ],
+
+
+    "Священное заснеженное поле": [
+        "Туннель жёлтого аникса",
+        "Тайный путь к Святому Древу",
+        "Снаружи пещеры забытых",
+        "Малое Древо Эрд",
+        "Катакомбы под священным полем",
+        "Внутренняя часть священного поля",
+        "Пещера забытых",
+        "Руины вероотступников"
+    ],
+
+
+    "Вулкан Гельмир": [
+        "Могила героя Гельмира",
+        "Вулканово поместье",
+        "Вулкан Гельмир",
+        "Подземная камера Инквизиции",
+        "Вулканическая пещера",
+        "Деревня отшельников",
+        "Руины Виндхэма",
+        "Озеро лавы вулкана Гельмир",
+        "Пещера мудреца",
+        "Отвратительные катакомбы",
+        "Пещера Кипящей реки",
+        "Катакомбы Виндхэма"
+    ],
+
+
+    "Святое Древо Микеллы": [
+        "Святое Древо Микеллы",
+        "Корни Святого Древа"
+    ],
+
+
+    "Разрушающийся Фарум-Азула": [
+        "Секретная область",
+        "Драконий храм",
+        "Великий Мост"
+    ],
+
+
+    "Трон Элдена": [
+        "Трон Элдена"
+    ],
+
+
+    "Звёздные пустоши": [
+        "Священная башня Звёздных пустошей",
+        "Замок Рыжей гривы",
+        "Малое Древо Эрд в Звёздных пустошах",
+        "Малое Древа Эрд в Драконьем кургане",
+        "Убежище в Селлии",
+        "Катакомбы мёртвых воинов",
+        "Храм драконьего причастия",
+        "Мост Драконьего кургана",
+        "Драконий Курган",
+        "Узилище Селлии",
+        "Пещера Драконьего кургана",
+        "Заброшенная пещера",
+        "Руины Калема",
+        "Катакомбы малого Древа Эрд",
+        "Кристальный туннель Селлии",
+        "Болото Эония",
+        "Туннель Гаэля",
+        "Селлия, город магии",
+        "Звёздные пустоши",
+        "Башня Ленне",
+        "Лачуга торговца-затворника",
+        "Ворота Селлии",
+        "Звериное прибежище",
+        "Катакомбы Звёздных пустошей",
+        "Тюремная пещера"
+    ],
+
+
+    "Вершины великанов": [
+        "Пещера призывателя душ",
+        "Ледяное озеро",
+        "Узилище соперника владыки",
+        "Малое Древо Эрд",
+        "Могила героя, победителя великанов",
+        "Катакомбы на Вершине великанов",
+        "Замок Сол",
+        "Запретные земли",
+        "Огненный пик",
+        "Руины звездочётов"
+    ],
+
+
+    "Озеро Гнили": [
+        "Великий клуатр",
+        "Озеро гнили"
+    ],
+
+
+    "Мавзолей династии Могвинов": [
+        "Мавзолей династии Могвинов"
+    ],
+
+
+    "Низовье Глубокого Корня": [
+        "Трон Принца Смерти",
+        "Низовье Глубокого Корня"
+    ],
+
+
+    "Царство Теней": [
+        "Зубатая гора",
+        "Энир-Илим",
+        "Крест у дороги",
+        "Север ущелья",
+        "Пещера у речного устья",
+        "Пристанище Теней",
+        "Сумрачные катакомбы",
+        "Разлом в каменном саркофаге",
+        "Собор Манус Метир",
+        "Руины Мурта",
+        "Драконья яма",
+        "Подножие зубатой горы",
+        "Заброшенная деревня ослабевших",
+        "Лазурное побережье",
+        "Лазурное побережье, запад",
+        "Холм каменных пальцев",
+        "Безымянный северный мавзолей",
+        "Тюрьма в Бонни",
+        "Поместье Мидры",
+        "Тюрьма в Белурате",
+        "Плакальщика",
+        "Тюрьма плакальщика",
+        "Тайная могила Харо",
+        "Безымянный восточный мавзолей",
+        "Замок Энсис",
+        "Храм Цветочных бутонов",
+        "Безымянный западный мавзолей",
+        "Катакомбы под Скорпионовой рекой",
+        "Катакомбы туманного разлома",
+        "Белурат, поселение у башни",
+        "Руины обители Рауха, запад",
+        "Мост внутренних земель",
+        "Безымянный южный мавзолей",
+        "Теневой Альтус, запад",
+        "Форт порицания"
+    ]
+
+};
 
 
 
-data.history.slice(0,5).forEach(item=>{
+// =====================================================
+// ПОЛУЧЕНИЕ РЕГИОНА
+// =====================================================
 
 
-history.innerHTML += `
+function getRegion(location) {
 
+    for (const region of REGIONS) {
 
-<div>
+        const rules = REGION_RULES[region] || [];
 
+        for (const rule of rules) {
 
-<h3>
-🏆 ${item.boss_name}
-</h3>
+            if (
+                location === rule ||
+                location.includes(rule) ||
+                rule.includes(location)
+            ) {
 
+                return region;
 
-<p>
-Попыток:
-${item.attempts}
-</p>
+            }
 
+        }
 
-<p>
-📅 ${item.date}
-</p>
+    }
 
-
-<hr>
-
-
-</div>
-
-
-`;
-
-
-});
-
+    return "Другие";
 
 }
 
 
 
+// =====================================================
+// ДАННЫЕ
+// =====================================================
 
 
 let allBossStats = {};
 
+let activeRegion = "all";
 
 
-async function loadBossList(){
+
+// =====================================================
+// СТАТИСТИКА
+// =====================================================
 
 
-const response =
-await fetch("/boss_stats");
+async function loadStats() {
 
 
-allBossStats =
-await response.json();
+    const response =
+        await fetch("/stats");
 
 
-loadLocations(allBossStats);
+    const data =
+        await response.json();
 
 
-renderBossList(allBossStats);
 
+    document.getElementById("stats").innerHTML = `
+
+        <p>
+        🏆 Побеждено:
+        <b>${data.killed}</b>
+        /
+        <b>${data.total_bosses}</b>
+        </p>
+
+        <p>
+        ⚔ Осталось:
+        <b>${data.left}</b>
+        </p>
+
+        <p>
+        💀 Всего смертей:
+        <b>${data.total_deaths}</b>
+        </p>
+
+    `;
+
+
+
+    // =============================
+    // САМЫЕ СЛОЖНЫЕ
+    // =============================
+
+
+    let top =
+        document.getElementById("top");
+
+
+    top.innerHTML = "";
+
+
+    data.top_deadly
+        .slice(0, 3)
+        .forEach((boss, index) => {
+
+
+            const medals = [
+                "🥇",
+                "🥈",
+                "🥉"
+            ];
+
+
+            top.innerHTML += `
+
+                <div class="top-boss">
+
+                    <h3>
+                    ${medals[index]}
+                    ${boss.name}
+                    </h3>
+
+                    <p>
+                    💀 ${boss.deaths} смертей
+                    </p>
+
+                </div>
+
+            `;
+
+        });
+
+
+
+    // =============================
+    // ПОСЛЕДНИЕ 5 ПОБЕД
+    // =============================
+
+
+    let history =
+        document.getElementById("history");
+
+
+    history.innerHTML = "";
+
+
+    data.history
+        .slice(0, 5)
+        .forEach(item => {
+
+
+            history.innerHTML += `
+
+                <div class="history-item">
+
+                    <h3>
+                    🏆 ${item.boss_name}
+                    </h3>
+
+                    <p>
+                    Попыток:
+                    ${item.attempts}
+                    </p>
+
+                    <p>
+                    📅 ${item.date}
+                    </p>
+
+                </div>
+
+            `;
+
+        });
 
 }
 
 
 
+// =====================================================
+// ЗАГРУЗКА БОССОВ
+// =====================================================
+
+
+async function loadBossList() {
+
+
+    const response =
+        await fetch("/boss_stats");
+
+
+    allBossStats =
+        await response.json();
 
 
 
-function renderBossList(data){
+    loadRegions();
 
 
-const box =
-document.getElementById("boss-list");
-
-
-box.innerHTML = `
-
-
-<table class="boss-table">
-
-<thead>
-
-<tr>
-
-<th>Босс</th>
-
-<th>Локация</th>
-
-<th>Попытки</th>
-
-<th>Статус</th>
-
-</tr>
-
-</thead>
-
-
-<tbody id="bossRows">
-
-</tbody>
-
-
-</table>
-
-
-`;
-
-
-
-const rows =
-document.getElementById("bossRows");
-
-
-
-for(const location in data){
-
-
-data[location].forEach(boss=>{
-
-
-rows.innerHTML += `
-
-
-<tr>
-
-
-<td>
-${boss.name}
-</td>
-
-
-<td>
-${location}
-</td>
-
-
-<td>
-💀 ${boss.deaths}
-</td>
-
-
-<td>
-
-${boss.defeated
-
-?
-
-"🏆 Убит"
-
-:
-
-"⚔ Жив"
+    renderBossList();
 
 }
 
 
-</td>
+
+// =====================================================
+// СОЗДАНИЕ СПИСКА РЕГИОНОВ
+// =====================================================
 
 
-</tr>
+function loadRegions() {
 
 
-`;
+    const select =
+        document.getElementById("regionFilter");
 
 
-});
+    select.innerHTML = `
 
+        <option value="all">
+        📍 Все регионы
+        </option>
 
-}
-
-
-}
-
-
-function filterBossList(){
-
-
-let text =
-document.getElementById("bossFilter")
-.value
-.toLowerCase();
+    `;
 
 
 
-let status =
-document.getElementById("statusFilter")
-.value;
+    const tabs =
+        document.getElementById("region-tabs");
+
+
+    tabs.innerHTML = "";
 
 
 
-let location =
-document.getElementById("locationFilter")
-.value;
+    REGIONS.forEach(region => {
+
+
+        let option =
+            document.createElement("option");
+
+
+        option.value =
+            region;
+
+
+        option.textContent =
+            "📍 " + region;
+
+
+        select.appendChild(option);
 
 
 
-let result = {};
+        let button =
+            document.createElement("button");
 
 
+        button.className =
+            "region-tab";
 
-for(const loc in allBossStats){
+
+        button.textContent =
+            region;
 
 
-if(
-location !== "all"
-&&
-loc !== location
-){
+        button.onclick = function() {
 
-continue;
+
+            activeRegion =
+                region;
+
+
+            select.value =
+                region;
+
+
+            document
+                .querySelectorAll(".region-tab")
+                .forEach(tab =>
+                    tab.classList.remove("active")
+                );
+
+
+            button.classList.add("active");
+
+
+            filterBossList();
+
+        };
+
+
+        tabs.appendChild(button);
+
+    });
 
 }
 
 
 
-let bosses =
-allBossStats[loc].filter(boss=>{
+// =====================================================
+// РЕНДЕР ТАБЛИЦЫ
+// =====================================================
 
 
-let nameOk =
-boss.name
-.toLowerCase()
-.includes(text);
+function renderBossList() {
 
 
+    const container =
+        document.getElementById("boss-list");
 
-let statusOk =
 
-
-status==="all"
-
-||
-
-(status==="alive" && !boss.defeated)
-
-||
-
-(status==="dead" && boss.defeated);
+    let rows = [];
 
 
 
-return nameOk && statusOk;
+    for (const location in allBossStats) {
+
+
+        allBossStats[location].forEach(boss => {
+
+
+            const region =
+                getRegion(location);
+
+
+            boss._region =
+                region;
+
+
+            rows.push({
+                ...boss,
+                location: location,
+                region: region
+            });
+
+
+        });
+
+    }
 
 
 
-});
+    // =============================
+    // ФИЛЬТР РЕГИОНА
+    // =============================
+
+
+    if (activeRegion !== "all") {
+
+
+        rows =
+            rows.filter(
+                boss =>
+                    boss.region === activeRegion
+            );
+
+    }
 
 
 
-if(bosses.length){
+    // =============================
+    // ПОИСК
+    // =============================
 
-result[loc]=bosses;
+
+    const text =
+        document
+            .getElementById("bossFilter")
+            .value
+            .toLowerCase();
+
+
+
+    if (text) {
+
+
+        rows =
+            rows.filter(boss =>
+
+                boss.name
+                    .toLowerCase()
+                    .includes(text)
+
+                ||
+
+                boss.location
+                    .toLowerCase()
+                    .includes(text)
+
+            );
+
+    }
+
+
+
+    // =============================
+    // СТАТУС
+    // =============================
+
+
+    const status =
+        document
+            .getElementById("statusFilter")
+            .value;
+
+
+
+    if (status === "alive") {
+
+
+        rows =
+            rows.filter(
+                boss =>
+                    !boss.defeated
+            );
+
+    }
+
+
+    if (status === "dead") {
+
+
+        rows =
+            rows.filter(
+                boss =>
+                    boss.defeated
+            );
+
+    }
+
+
+
+    // =============================
+    // ПУСТО
+    // =============================
+
+
+    if (!rows.length) {
+
+
+        container.innerHTML = `
+
+            <div class="empty-bosses">
+
+                Боссов по выбранным параметрам нет.
+
+            </div>
+
+        `;
+
+
+        return;
+
+    }
+
+
+
+    // =============================
+    // ГРУППИРУЕМ ПО РЕГИОНАМ
+    // =============================
+
+
+    const grouped = {};
+
+
+
+    rows.forEach(boss => {
+
+
+        if (!grouped[boss.region]) {
+
+            grouped[boss.region] = [];
+
+        }
+
+
+        grouped[boss.region].push(boss);
+
+    });
+
+
+
+    // =============================
+    // ТАБЛИЦЫ
+    // =============================
+
+
+    container.innerHTML = "";
+
+
+
+    REGIONS.forEach(region => {
+
+
+        if (!grouped[region]) {
+
+            return;
+
+        }
+
+
+
+        const section =
+            document.createElement("div");
+
+
+        section.className =
+            "region-section";
+
+
+
+        section.innerHTML = `
+
+            <div class="region-title">
+
+                📍 ${region}
+
+                <span>
+                (${grouped[region].length})
+                </span>
+
+            </div>
+
+
+            <table class="boss-table">
+
+                <thead>
+
+                    <tr>
+
+                        <th>
+                        Босс
+                        </th>
+
+                        <th>
+                        Микролокация
+                        </th>
+
+                        <th>
+                        Попытки
+                        </th>
+
+                        <th>
+                        Статус
+                        </th>
+
+                    </tr>
+
+                </thead>
+
+
+                <tbody>
+
+                </tbody>
+
+            </table>
+
+        `;
+
+
+
+        const tbody =
+            section.querySelector("tbody");
+
+
+
+        grouped[region].forEach(boss => {
+
+
+            let emoji =
+                getEmoji(boss.type);
+
+
+
+            let status =
+                boss.defeated
+                    ? "🏆 Убит"
+                    : "⚔ Жив";
+
+
+
+            tbody.innerHTML += `
+
+                <tr
+                    class="${boss.defeated ? "boss-row-defeated" : ""}"
+                >
+
+                    <td>
+
+                        <span class="boss-emoji">
+                        ${emoji}
+                        </span>
+
+                        ${boss.name}
+
+                    </td>
+
+
+                    <td>
+
+                        📍 ${boss.location}
+
+                    </td>
+
+
+                    <td>
+
+                        💀 ${boss.deaths}
+
+                    </td>
+
+
+                    <td>
+
+                        ${status}
+
+                    </td>
+
+                </tr>
+
+            `;
+
+        });
+
+
+
+        container.appendChild(section);
+
+    });
+
+
+
+    // Если есть "Другие"
+
+    if (grouped["Другие"]) {
+
+
+        const section =
+            document.createElement("div");
+
+
+        section.className =
+            "region-section";
+
+
+        section.innerHTML = `
+
+            <div class="region-title">
+
+                📍 Другие
+
+                <span>
+                (${grouped["Другие"].length})
+                </span>
+
+            </div>
+
+            <table class="boss-table">
+
+                <thead>
+
+                    <tr>
+
+                        <th>Босс</th>
+                        <th>Микролокация</th>
+                        <th>Попытки</th>
+                        <th>Статус</th>
+
+                    </tr>
+
+                </thead>
+
+                <tbody>
+
+                </tbody>
+
+            </table>
+
+        `;
+
+
+
+        const tbody =
+            section.querySelector("tbody");
+
+
+
+        grouped["Другие"].forEach(boss => {
+
+
+            tbody.innerHTML += `
+
+                <tr>
+
+                    <td>
+                    ${getEmoji(boss.type)}
+                    ${boss.name}
+                    </td>
+
+                    <td>
+                    📍 ${boss.location}
+                    </td>
+
+                    <td>
+                    💀 ${boss.deaths}
+                    </td>
+
+                    <td>
+                    ${boss.defeated
+                        ? "🏆 Убит"
+                        : "⚔ Жив"
+                    }
+                    </td>
+
+                </tr>
+
+            `;
+
+        });
+
+
+
+        container.appendChild(section);
+
+    }
 
 }
 
 
+
+// =====================================================
+// ФИЛЬТР
+// =====================================================
+
+
+function filterBossList() {
+
+
+    const select =
+        document.getElementById("regionFilter");
+
+
+    activeRegion =
+        select.value;
+
+
+    document
+        .querySelectorAll(".region-tab")
+        .forEach(tab => {
+
+
+            tab.classList.toggle(
+                "active",
+                tab.textContent === activeRegion
+            );
+
+        });
+
+
+    renderBossList();
+
+}
+
+
+
+// =====================================================
+// ЭМОДЗИ
+// =====================================================
+
+
+function getEmoji(type) {
+
+
+    switch(type) {
+
+
+        case "полубог":
+            return "💎";
+
+
+        case "легендарный":
+            return "⚔️";
+
+
+        case "великий":
+            return "🗡️";
+
+
+        case "ночной":
+            return "🌑";
+
+
+        case "малое древо":
+            return "🌳";
+
+
+        case "корень смерти":
+            return "💀";
+
+
+        case "узилище":
+            return "⚪";
+
+
+        default:
+            return "🌻";
+
+    }
+
 }
 
 
 
-renderBossList(result);
+// =====================================================
+// СТАРТ
+// =====================================================
 
-
-}
-
-
-
-loadBossList();
-
-function loadLocations(data){
-
-
-let select =
-document.getElementById("locationFilter");
-
-
-
-Object.keys(data).forEach(location=>{
-
-
-select.innerHTML += `
-
-
-<option value="${location}">
-📍 ${location}
-</option>
-
-
-`;
-
-
-});
-
-
-}
 
 loadStats();
 
+loadBossList();
+
 
 </script>
-
 
 
 </body>
