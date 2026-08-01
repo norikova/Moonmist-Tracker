@@ -579,7 +579,7 @@ def stats():
 
     cursor.execute(
         """
-        SELECT COUNT(*) 
+        SELECT COUNT(DISTINCT boss_id)
         FROM kills
         """
     )
